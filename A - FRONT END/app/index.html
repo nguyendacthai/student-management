@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management</title>
+</head>
+<body>
+
+  <ui-view></ui-view>
+
+</body>
+</html>
+
+<script src="lib/angular.min.js"></script>
+<script src="lib/angular-messages.min.js"></script>
+<script src="lib/angular-ui-router.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/jquery-3.3.1.js"></script>
+<script src="lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+<script>
+    var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap']);
+</script>
