@@ -3,7 +3,7 @@ myApp.config(['$stateProvider', function($stateProvider){
         controller : 'dashboardController',
         name: 'dashboard',
         url: '/dashboard',
-        templateUrl: '/views/dashboard.html'
+        templateUrl: '/views/dashboard.html',
     };
     $stateProvider.state(dashboardState);
 }]);

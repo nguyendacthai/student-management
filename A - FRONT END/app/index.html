@@ -5,7 +5,8 @@
   <title>Student Management</title>
   <link rel="stylesheet" href="lib/css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="lib/css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="lib/css/fontawesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="lib/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="lib/css/font.css" type="text/css" />
   <link rel="stylesheet" href="lib/css/app.css" type="text/css" />
 </head>
 <body>
@@ -15,7 +16,7 @@
 </body>
 </html>
 
-<script src="lib/js/jquery-3.3.1.js"></script>
+<script src="lib/js/jquery.min.js"></script>
 
 <script src="lib/js/bootstrap.js"></script>
 
@@ -38,9 +39,18 @@
     var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap']);
 </script>
 
+<script src="constants/status.constant.js"></script>
+
 <script src="routes/login.route.js"></script>
 <script src="controllers/login.controller.js"></script>
 <script src="services/user.service.js"></script>
 
 <script src="routes/dashboard.route.js"></script>
 <script src="controllers/dashboard.controller.js"></script>
+
+<script src="routes/specialized.route.js"></script>
+<script src="controllers/specialized.controller.js"></script>
+<script src="services/specialized.service.js"></script>
+
+<script src="routes/class.route.js"></script>
+<script src="controllers/class.controller.js"></script>
