@@ -5,11 +5,19 @@ myApp.controller("specializedController", function ($scope, $uibModal, $state, $
 
     $scope.model = {};
 
-    $scope.specializedModel = { name: ''};
-    
+    $scope.specializedModel = { };
+
+    // Search specialized
     $scope.search = function () {
-        
-    }
+        var info = {
+            names : $scope.model.name != null ? [$scope.model.name] : null,
+            statuses : $scope.model.status != null ? [$scope.model.status] : null,
+        }
+        debugger
+        $specialized.loadSpecialized(info).then(function (x) {
+            console.log(x);
+        })
+    };
 
     // Reset model binding
     $scope.reset = function () {
@@ -17,7 +25,7 @@ myApp.controller("specializedController", function ($scope, $uibModal, $state, $
             name: null,
             status: null
         };
-    }
+    };
 
     // Show popup
     $scope.add = function(){
@@ -33,7 +41,7 @@ myApp.controller("specializedController", function ($scope, $uibModal, $state, $
         if(form.$invalid){
             return;
         }
-        $specialized.createSpecialized($scope.specializedModel.name).then(function (x) {
+        $specialized.createSpecialized($scope.specializedModel).then(function (x) {
             console.log(x);
 
             $scope.specializedModel.name = '';

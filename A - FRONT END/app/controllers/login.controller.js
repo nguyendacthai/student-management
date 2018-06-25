@@ -1,5 +1,5 @@
 var myApp = angular.module("myApp");
-myApp.controller("loginController", function ($scope, $user, $state) {
+myApp.controller("loginController", function ($scope, $user, $state, toastr) {
     $scope.model = { username : '', password: ''}
 
     $scope.login = function ($event) {
@@ -8,7 +8,7 @@ myApp.controller("loginController", function ($scope, $user, $state) {
             return;
         }
         $user.login($scope.model.username, $scope.model.password).then(function (x) {
-            console.log(x);
+            toastr.success('Login successfully')
             $state.go('dashboard')
         });
     };

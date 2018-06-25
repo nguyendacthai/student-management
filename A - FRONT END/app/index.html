@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="lib/css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="lib/css/font.css" type="text/css" />
   <link rel="stylesheet" href="lib/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="lib/css/angular-toastr.css" type="text/css" />
+  <link rel="stylesheet" href="lib/css/dataTable.css" type="text/css" />
 </head>
 <body>
 
@@ -35,12 +37,29 @@
 
 <script src="lib/js/jquery.slimscroll.min.js"></script>
 
+<!-- Toast -->
+<script src="lib/js/angular-toastr.tpls.js"></script>
+
+<!-- Data tables -->
+<script src="lib/js/dataTable.js"></script>
+
 <script>
-    var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap']);
+    var myApp = angular.module("myApp", ['ui.router','ui.bootstrap', 'toastr']);
 </script>
 
-<script src="constants/status.constant.js"></script>
 
+
+<script src="app.js"></script>
+
+<!-- Constant -->
+<script src="constants/status.constant.js"></script>
+<script src="constants/api-urls.constant.js"></script>
+<script src="constants/app-settings.constant.js"></script>
+
+<!-- Factory -->
+<script src="factories/api-interceptor.factory.js"></script>
+
+<!-- Routes + Controllers + Services -->
 <script src="routes/login.route.js"></script>
 <script src="controllers/login.controller.js"></script>
 <script src="services/user.service.js"></script>

@@ -1,7 +1,7 @@
 angular.module('myApp')
-    .service('$user',function($http){
+    .service('$user',function(appSettings, apiUrls, $http){
     this.login = function (username, password) {
-        var url = 'http://localhost:57701/api/account/login';
+        var url = appSettings.endPoint.apiService + '/' + apiUrls.account.login;
         return $http
             .post(url,{username: username, password: password})
             .then(function (x) {

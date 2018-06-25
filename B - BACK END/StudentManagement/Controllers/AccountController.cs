@@ -81,7 +81,7 @@ namespace StudentManagement.Controllers
             // Find account availability.
             var account = await accounts.FirstOrDefaultAsync();
             if (account == null)
-                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.Forbidden,
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NotFound,
                     HttpMessages.AccountNotFound));
 
             #region Token initialization

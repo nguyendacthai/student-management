@@ -1,11 +1,21 @@
 angular.module('myApp')
-    .service('$specialized',function($http){
-        this.createSpecialized = function (name) {
-            var url = 'http://localhost:57701/api/specialized';
+    .service('$specialized',function(appSettings, apiUrls, $http){
+        this.createSpecialized = function (s) {
+            var url = appSettings.endPoint.apiService + '/' + apiUrls.specialized.create;
             return $http
-                .post(url,{name : name})
+                .post(url,s)
                 .then(function (x) {
                     return x.data;
                 });
-        }
+        };
+
+        this.loadSpecialized = function (info) {
+            var url = appSettings.endPoint.apiService + '/' + apiUrls.specialized.load;
+            return $http
+                .post(url, info)
+                .then(function (x) {
+                    return x.data;
+                });
+        };
+
     });
