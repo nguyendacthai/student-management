@@ -8,6 +8,14 @@ angular.module('myApp')
                     return x.data;
                 });
         };
+        
+        this.editSpecialized = function (id, info) {
+            var url = appSettings.endPoint.apiService + '/' + apiUrls.specialized.update;
+            url = url.replace('{id}', id);
+            return $http.put(url, info).then(function (x) {
+                return x.data;
+            });
+        };
 
         this.loadSpecialized = function (info) {
             var url = appSettings.endPoint.apiService + '/' + apiUrls.specialized.load;

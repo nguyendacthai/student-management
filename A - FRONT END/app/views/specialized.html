@@ -32,30 +32,47 @@
                     <button type="button" class="btn btn-primary" ng-click="reset()">Reset</button>
                 </div>
             </div>
+
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="i in items">
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.status ==  1 ? 'Active' : 'Deleted'}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="editSpecialized(i.id)">View</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul uib-pagination ng-if="items.length > 0" total-items="totalItems" ng-model="$parent.currentPage" items-per-page="itemsPerPage" max-size="100" ></ul>
+            </div>
         </div>
     </section>
 
     <div>
-        <button type="button" class="btn btn-primary" ng-click="add()">Add</button>
+        <button type="button" class="btn btn-primary" ng-click="info = {}; modals.specialized = displayModal('specialized-modal.html', 'md')">Add</button>
     </div>
 </div>
 
+<!--Add | Edit Specialized-->
 <script type="text/ng-template" id="specialized-modal.html">
-    <form novalidate ng-submit="createSpecialized(createSpecializedForm)" name="createSpecializedForm">
-        <div class="panel panel-default">
-            <div class="panel-heading">SPECIALIZED VIEW</div>
-            <div class="panel-body">
-                <div class="form-group">
-                    <label>Name:</label>
-                    <input type="text" class="form-control" ng-model="specializedModel.name" name="specializedNameModal" required>
-                    <ul ng-if="(createSpecializedForm.specializedNameModal.$dirty || createSpecializedForm.$submitted) && createSpecializedForm.specializedNameModal.$invalid">
-                        <li style="color: red">Specialized name is required</li>
-                    </ul>
-                </div>
-
-                <button type="submit" class="btn btn-success">Save</button>
-                <button type="button" class="btn btn-primary" ng-click="cancelModal.dismiss()">Cancel</button>
-            </div>
-        </div>
-    </form>
+    <specialized-modal ng-click-cancel="modals.specialized.dismiss()"
+                       ng-click-ok="initSpecialized(specialized)"
+                       ng-info="info">
+        <panel-heading>
+            <div ng-if="!info.id">Add new specialized</div>
+            <div ng-if="info.id">Edit specialized</div>
+        </panel-heading>
+    </specialized-modal>
 </script>
