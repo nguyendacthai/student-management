@@ -1,5 +1,4 @@
-var myApp = angular.module("myApp");
-myApp.controller("specializedController", function ($scope, $uibModal, $state, $specialized, uiService, toastr, statusConstant) {
+angular.module("myApp").controller("specializedController", function ($scope, $uibModal, $state, $specialized, uiService, toastr, statusConstant) {
 
     // List of status (Active & Deleted)
     $scope.statuses = statusConstant.listStatus;

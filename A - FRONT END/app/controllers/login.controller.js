@@ -1,5 +1,4 @@
-var myApp = angular.module("myApp");
-myApp.controller("loginController", function ($scope, $user, $state, toastr) {
+angular.module("myApp").controller("loginController", function ($scope, $user, $state, toastr) {
     $scope.model = { username : '', password: ''}
 
     $scope.login = function ($event) {

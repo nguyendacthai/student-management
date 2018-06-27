@@ -1,4 +1,3 @@
-var myApp = angular.module("myApp");
-myApp.controller("dashboardController", function ($scope) {
+angular.module("myApp").controller("dashboardController", function ($scope) {
 
 });
