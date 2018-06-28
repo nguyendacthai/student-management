@@ -1,0 +1,37 @@
+<form novalidate ng-submit="createClass(classForm)" name="classForm" ng-init="init()">
+    <div class="panel panel-default">
+        <div class="panel-heading" ng-transclude="panelHeading">{{ngTitle}}</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label>Specialized:</label>
+                <select class="form-control"
+                        ng-options="specialized.id as specialized.name for specialized in specializeds.records"
+                        ng-model="model.specialized"
+                        name="specializedModal" required>
+                </select>
+                <ul ng-if="(classForm.specializedModal.$dirty || classForm.$submitted) && classForm.specializedModal.$invalid">
+                    <li style="color: red">Specialized is required</li>
+                </ul>
+            </div>
+
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" class="form-control" ng-model="model.name" name="nameModal" required>
+                <ul ng-if="(classForm.nameModal.$dirty || classForm.$submitted) && classForm.nameModal.$invalid">
+                    <li style="color: red">Class name is required</li>
+                </ul>
+            </div>
+
+            <div class="form-group" ng-if="model.id > 0">
+                <label>Status:</label>
+                <select class="form-control"
+                        ng-options="status.id as status.name for status in statuses"
+                        ng-model="model.status">
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success" ng-click="clickOk()">Save</button>
+            <button type="button" class="btn btn-primary" ng-click="clickCancel()">Cancel</button>
+        </div>
+    </div>
+</form>

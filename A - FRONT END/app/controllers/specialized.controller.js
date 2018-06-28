@@ -1,5 +1,7 @@
 angular.module("myApp").controller("specializedController", function ($scope, $uibModal, $state, $specialized, uiService, toastr, statusConstant) {
 
+    //#region Properties
+
     // List of status (Active & Deleted)
     $scope.statuses = statusConstant.listStatus;
 
@@ -19,6 +21,10 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
         name : null,
         status : null
     };
+
+    //#endregion
+
+    //#region Methods
 
     // Search specialized
     $scope.search = function () {
@@ -60,6 +66,22 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
         return uiService.displayModal(templateUrl, $scope, size);
     };
 
+    // Show popup when edit specialized
+    $scope.editSpecialized = function (id) {
+        var data = {
+            ids : [id]
+        };
+
+        $specialized.loadSpecialized(data).then(function (x) {
+            $scope.info.id = id;
+            $scope.info.name = x.records[0].name;
+            $scope.info.status = x.records[0].status;
+
+            // Display editor.
+            $scope.modals.specialized = $scope.displayModal('specialized-modal.html', 'md');
+        });
+    }
+
     // Create or update specialized
     $scope.initSpecialized = function (info) {
 
@@ -83,19 +105,5 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
         $scope.modals.specialized = null;
     };
 
-    // Show popup when edit specialized
-    $scope.editSpecialized = function (id) {
-        var data = {
-            ids : [id]
-        };
-
-        $specialized.loadSpecialized(data).then(function (x) {
-            $scope.info.id = id;
-            $scope.info.name = x.records[0].name;
-            $scope.info.status = x.records[0].status;
-
-            // Display editor.
-            $scope.modals.specialized = $scope.displayModal('specialized-modal.html', 'md');
-        });
-    }
+    //#endregion
 });

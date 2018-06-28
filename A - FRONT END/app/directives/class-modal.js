@@ -1,6 +1,6 @@
-angular.module("myApp").directive('specializedModal', function () {
+angular.module("myApp").directive('classModal', function () {
     return {
-        templateUrl: '/directives/specialized-modal.html',
+        templateUrl: '/directives/class-modal.html',
         restrict: 'E',
         transclude: {
             panelHeading: '?panelHeading'
@@ -13,9 +13,19 @@ angular.module("myApp").directive('specializedModal', function () {
             ngClickOk: '&',
             ngClickCancel: '&'
         },
-        controller: function ($scope, statusConstant) {
+        controller: function ($scope, $specialized, statusConstant) {
             // List of status (Active & Deleted)
             $scope.statuses = statusConstant.listStatus;
+
+            // Array of specialized
+            $scope.specializeds = [];
+
+            var info = {};
+
+            // Load specialized from db
+            $specialized.loadSpecialized(info).then(function (x) {
+                $scope.specializeds = x;
+            });
 
             // Model which is for 2-way data binding.
             $scope.model = {
@@ -36,11 +46,11 @@ angular.module("myApp").directive('specializedModal', function () {
             * */
             $scope.clickOk = function(){
 
-                if ($scope.specializedForm.$invalid) {
+                if ($scope.classForm.$invalid) {
                     return
                 }
 
-                $scope.ngClickOk({specialized: $scope.model});
+                $scope.ngClickOk({class: $scope.model});
             }
         }
     }
