@@ -31,7 +31,9 @@ angular.module("myApp").directive('classModal', function () {
             $scope.model = {
                 id: $scope.ngInfo.id,
                 name: $scope.ngInfo.name,
-                status : $scope.ngInfo.status
+                status : $scope.ngInfo.status,
+                specialized : $scope.ngInfo.specialized,
+                specializedId : null
             };
 
             /*

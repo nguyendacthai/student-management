@@ -9,6 +9,7 @@
                         ng-model="model.specialized"
                         name="specializedModal" required>
                 </select>
+
                 <ul ng-if="(classForm.specializedModal.$dirty || classForm.$submitted) && classForm.specializedModal.$invalid">
                     <li style="color: red">Specialized is required</li>
                 </ul>

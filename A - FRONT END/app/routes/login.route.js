@@ -1,5 +1,4 @@
-var myApp = angular.module("myApp");
-myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+angular.module("myApp").config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
     $stateProvider.state('loginState', {
         controller : 'loginController',

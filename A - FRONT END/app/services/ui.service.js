@@ -1,5 +1,4 @@
-var myApp = angular.module("myApp");
-myApp.service('uiService', function ($uibModal) {
+angular.module("myApp").service('uiService', function ($uibModal) {
     /**
      * Display modal dialog with specific information.
      * @returns {}

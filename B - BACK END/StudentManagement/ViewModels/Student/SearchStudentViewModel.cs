@@ -8,17 +8,27 @@ namespace StudentManagement.ViewModels.Student
     public class SearchStudentViewModel
     {
         /// <summary>
-        /// Indexes of student
+        /// Index of student
         /// </summary>
         public List<int> Ids { get; set; }
 
         /// <summary>
-        /// Names of student
+        /// Name of student
         /// </summary>
         public List<string> Usernames { get; set; }
 
         /// <summary>
-        /// Statuses of student.
+        /// Full name of student
+        /// </summary>
+        public List<string> Fullnames { get; set; }
+
+        /// <summary>
+        /// Gender of student
+        /// </summary>
+        public List<Gender> Genders { get; set; }
+
+        /// <summary>
+        /// Status of student.
         /// </summary>
         public List<MasterItemStatus> Statuses { get; set; }
 

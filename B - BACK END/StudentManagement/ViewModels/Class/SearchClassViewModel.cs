@@ -18,6 +18,11 @@ namespace StudentManagement.ViewModels.Class
         public List<string> Names { get; set; }
 
         /// <summary>
+        /// Id of specialized
+        /// </summary>
+        public List<int> SpecializedIds { get; set; }
+
+        /// <summary>
         /// Statuses of specialized.
         /// </summary>
         public List<MasterItemStatus> Statuses { get; set; }

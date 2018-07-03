@@ -12,6 +12,12 @@ myApp.constant('apiUrls', {
         load : 'api/class/load-class'
     },
 
+    student: {
+        create : 'api/student',
+        update : 'api/student/{id}',
+        load : 'api/student/load-student'
+    },
+
     account : {
         login : 'api/account/login'
     }

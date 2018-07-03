@@ -1,4 +1,4 @@
-myApp.config(['$stateProvider', function($stateProvider){
+angular.module("myApp").config(['$stateProvider', function($stateProvider){
     var specializedState = {
         controller : 'specializedController',
         name: 'specialized',

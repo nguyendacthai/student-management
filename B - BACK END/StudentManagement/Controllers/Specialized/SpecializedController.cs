@@ -72,9 +72,9 @@ namespace StudentManagement.Controllers.Specialized
                 Status = MasterItemStatus.Active
             };
 
-            //specialized = UnitOfWork.RepositorySpecialized.Insert(specialized);
+            specialized = UnitOfWork.RepositorySpecialized.Insert(specialized);
 
-            //await UnitOfWork.CommitAsync();
+            await UnitOfWork.CommitAsync();
 
             return Ok(specialized);
         }

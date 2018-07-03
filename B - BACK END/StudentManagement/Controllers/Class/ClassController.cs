@@ -197,6 +197,16 @@ namespace StudentManagement.Controllers.Class
                     classes = classes.Where(x => info.Names.Any(y => x.Name.Contains(y)));
             }
 
+            // Specialized id have been defined
+            if (info.SpecializedIds != null && info.SpecializedIds.Count > 0)
+            {
+                info.SpecializedIds = info.SpecializedIds.Where(x => x > 0).ToList();
+                if (info.SpecializedIds != null && info.SpecializedIds.Count > 0)
+                {
+                    classes = classes.Where(x => info.SpecializedIds.Contains(x.SpecializedId));
+                }
+            }
+
             // Statuses have been defined.
             if (info.Statuses != null && info.Statuses.Count > 0)
             {

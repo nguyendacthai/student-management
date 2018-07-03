@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations\AccountStatus.cs" />
+    <Compile Include="Enumerations\Gender.cs" />
     <Compile Include="Enumerations\MasterItemStatus.cs" />
     <Compile Include="Models\Contexts\RelationalDbContext.cs" />
     <Compile Include="Models\Entities\Attachment.cs" />
