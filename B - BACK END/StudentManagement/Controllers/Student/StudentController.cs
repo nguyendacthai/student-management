@@ -76,9 +76,9 @@ namespace StudentManagement.Controllers.Student
                 Status = MasterItemStatus.Active
             };
 
-            student = UnitOfWork.RepositoryStudent.Insert(student);
+            //student = UnitOfWork.RepositoryStudent.Insert(student);
 
-            await UnitOfWork.CommitAsync();
+            //await UnitOfWork.CommitAsync();
 
             return Ok(student);
         }
@@ -185,7 +185,7 @@ namespace StudentManagement.Controllers.Student
                 }
             }
 
-            // Name have been defined
+            // User name have been defined
             if (info.Usernames != null && info.Usernames.Count > 0)
             {
                 info.Usernames = info.Usernames.Where(x => !string.IsNullOrEmpty(x)).ToList();
@@ -193,7 +193,32 @@ namespace StudentManagement.Controllers.Student
                     students = students.Where(x => info.Usernames.Any(y => x.Username.Contains(y)));
             }
 
-            // Statuses have been defined.
+            // Full name have been defined
+            if (info.Fullnames != null && info.Fullnames.Count > 0)
+            {
+                info.Fullnames = info.Fullnames.Where(x => !string.IsNullOrEmpty(x)).ToList();
+                if (info.Fullnames.Count > 0)
+                    students = students.Where(x => info.Fullnames.Any(y => x.Fullname.Contains(y)));
+            }
+
+            // Phone have been defined
+            if (info.Phones != null && info.Phones.Count > 0)
+            {
+                info.Phones = info.Phones.Where(x => !string.IsNullOrEmpty(x)).ToList();
+                if (info.Phones.Count > 0)
+                    students = students.Where(x => info.Phones.Any(y => x.Phone.Contains(y)));
+            }
+
+            // Gender have been defined.
+            if (info.Genders != null && info.Genders.Count > 0)
+            {
+                info.Genders =
+                    info.Genders.Where(x => Enum.IsDefined(typeof(Gender), x)).ToList();
+                if (info.Genders.Count > 0)
+                    students = students.Where(x => info.Genders.Contains(x.Gender));
+            }
+
+            // Status have been defined.
             if (info.Statuses != null && info.Statuses.Count > 0)
             {
                 info.Statuses =

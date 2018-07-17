@@ -41,7 +41,7 @@ namespace Database.Models.Entities
         /// Gender of student
         /// </summary>
         [Required]
-        public bool Gender { get; set; }
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// Phone number of student

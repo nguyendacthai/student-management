@@ -23,6 +23,11 @@ namespace StudentManagement.ViewModels.Student
         public List<string> Fullnames { get; set; }
 
         /// <summary>
+        /// Phone number of student
+        /// </summary>
+        public List<string> Phones { get; set; }
+
+        /// <summary>
         /// Gender of student
         /// </summary>
         public List<Gender> Genders { get; set; }

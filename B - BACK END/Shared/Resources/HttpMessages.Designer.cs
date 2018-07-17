@@ -70,6 +70,15 @@ namespace Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attachment Not Found.
+        /// </summary>
+        public static string AttachmentNotFound {
+            get {
+                return ResourceManager.GetString("AttachmentNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot Be Duplicated.
         /// </summary>
         public static string CannotBeDuplicated {

@@ -18,6 +18,13 @@ myApp.constant('apiUrls', {
         load : 'api/student/load-student'
     },
 
+    attachment:{
+        create : 'api/attachment',
+        load : 'api/attachment/load-attachment',
+        get : 'api/attachment/get-attachment/{id}',
+    },
+
+
     account : {
         login : 'api/account/login'
     }

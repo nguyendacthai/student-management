@@ -1,0 +1,129 @@
+<div>
+    <form novalidate name="studentForm" ng-init="init()">
+        <section class="content ng-scope">
+            <div class="box box-primary ng-scope">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label><b>Username:</b></label>
+                                <div class="form-group">
+                                    <input ng-disabled="model.id" type="text" class="form-control" ng-model="model.username" name="usernameValid" required>
+
+                                    <ul ng-if="(studentForm.usernameValid.$dirty || studentForm.$submitted) && studentForm.usernameValid.$invalid">
+                                        <li style="color: red">Username is required</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label><b>Full Name:</b></label>
+                                <div class="form-group">
+                                    <input ng-disabled="model.id" type="text" class="form-control" ng-model="model.fullname" name="fullNameValid" required>
+
+                                    <ul ng-if="(studentForm.fullNameValid.$dirty || studentForm.$submitted) && studentForm.fullNameValid.$invalid">
+                                        <li style="color: red">Full name is required</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label><b>Password:</b></label>
+                                <div class="form-group">
+                                    <input ng-disabled="model.id" type="password" class="form-control" ng-model="model.password" name="passwordValid" required>
+
+                                    <ul ng-if="(studentForm.passwordValid.$dirty || studentForm.$submitted) && studentForm.passwordValid.$invalid">
+                                        <li style="color: red">Password is required</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label><b>Phone:</b></label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="model.phone">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label><b>Gender:</b></label>
+                                <div class="form-group">
+                                    <select ng-disabled="model.id" class="form-control"
+                                            ng-options="gender.id as gender.name for gender in genders"
+                                            ng-model="model.gender"
+                                            name="genderValid" required>
+                                    </select>
+
+                                    <ul ng-if="(studentForm.genderValid.$dirty || studentForm.$submitted) && studentForm.genderValid.$invalid">
+                                        <li style="color: red">Gender is required</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12" ng-if="model.id">
+                    <div class="row">
+                        <img ng-src="{{img}}">
+                    </div>
+                </div>
+
+                <div ng-if="!model.id" class="row">
+
+                    <div class="col-lg-12">
+
+                        <h3>Select files</h3>
+
+                        <div ng-show="uploader.isHTML5">
+                            <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                            <!--<div class="well my-drop-zone" nv-file-over="" uploader="uploader">-->
+                                <!--Base drop zone-->
+                            <!--</div>-->
+
+                            <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                            <div nv-file-drop="" uploader="fileUploader">
+                                <div nv-file-over="" uploader="fileUploader" over-class="another-file-over-class" class="well my-drop-zone" >
+                                    Another drop zone with its own settings
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                        <input type="file" nv-file-select="" uploader="fileUploader" ng-model="model.document" /><br/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button ng-if="!model.id" type="submit" class="btn btn-success" ng-click="clickSave()">Save</button>
+                        <button ng-if="model.id" type="submit" class="btn btn-success" ng-click="clickEdit()">Edit</button>
+                        <button type="button" class="btn btn-primary" ng-click="clickCancel()">Cancel</button>
+                        <button type="button" class="btn btn-success" ng-click="clickReset()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</div>
+

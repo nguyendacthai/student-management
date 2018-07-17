@@ -120,6 +120,9 @@
   <data name="AccountNotFound" xml:space="preserve">
     <value>Account Not Found</value>
   </data>
+  <data name="AttachmentNotFound" xml:space="preserve">
+    <value>Attachment Not Found</value>
+  </data>
   <data name="CannotBeDuplicated" xml:space="preserve">
     <value>Cannot Be Duplicated</value>
   </data>

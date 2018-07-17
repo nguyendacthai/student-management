@@ -16,7 +16,7 @@
     <AssemblyName>StudentManagement</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ApiMultiPartFormData, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ApiMultipartFormDataFormatter.1.0.3\lib\4.5\ApiMultiPartFormData.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
@@ -171,6 +174,7 @@
     <Compile Include="Controllers\Class\ClassController.cs" />
     <Compile Include="Controllers\Specialized\SpecializedController.cs" />
     <Compile Include="Controllers\Student\StudentController.cs" />
+    <Compile Include="Enumerations\AttachmentPropertySort.cs" />
     <Compile Include="Enumerations\ClassPropertySort.cs" />
     <Compile Include="Enumerations\SpecializedPropertySort.cs" />
     <Compile Include="Enumerations\StudentPropertySort.cs" />
@@ -185,6 +189,8 @@
     <Compile Include="Interfaces\Services\IEncryptionService.cs" />
     <Compile Include="Interfaces\Services\IIdentityService.cs" />
     <Compile Include="Interfaces\Services\ISystemTimeService.cs" />
+    <Compile Include="Models\Attachment\AttachmentDetailsModel.cs" />
+    <Compile Include="Models\Attachment\AttachmentModel.cs" />
     <Compile Include="Models\Generic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Attachment\RepositoryAttachment.cs" />
@@ -201,6 +207,7 @@
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\TokenViewModel.cs" />
     <Compile Include="ViewModels\Attachment\AddAttachmentViewModel.cs" />
+    <Compile Include="ViewModels\Attachment\SearchAttachmentViewModel.cs" />
     <Compile Include="ViewModels\Class\AddClassViewModel.cs" />
     <Compile Include="ViewModels\Class\EditClassViewModel.cs" />
     <Compile Include="ViewModels\Class\SearchClassViewModel.cs" />

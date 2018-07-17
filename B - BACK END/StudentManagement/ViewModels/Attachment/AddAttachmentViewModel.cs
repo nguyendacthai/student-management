@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ApiMultiPartFormData.Models;
 
 namespace StudentManagement.ViewModels.Attachment
 {
@@ -12,17 +13,17 @@ namespace StudentManagement.ViewModels.Attachment
         [Required]
         public int StudentId { get; set; }
 
-        /// <summary>
-        /// Name of document.
-        /// </summary>
-        [Required]
-        public string Name { get; set; }
-
         ///// <summary>
-        ///// Document binary content.
+        ///// Name of document.
         ///// </summary>
         //[Required]
-        //public HttpFile Document { get; set; }
+        //public string Name { get; set; }
+
+        /// <summary>
+        /// Document binary content.
+        /// </summary>
+        [Required]
+        public HttpFile Document { get; set; }
 
         #endregion
     }

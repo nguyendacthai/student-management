@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="lib/css/app.css" type="text/css" />
   <link rel="stylesheet" href="lib/css/angular-toastr.css" type="text/css" />
   <link rel="stylesheet" href="lib/css/dataTable.css" type="text/css" />
+  <link rel="stylesheet" href="lib/css/style.css" type="text/css" />
 </head>
 <body>
 
@@ -36,6 +37,8 @@
 
 <script src="lib/js/jquery.slimscroll.min.js"></script>
 
+<script src="lib/js/angular-file-upload.min.js"></script>
+
 <!-- Toast -->
 <script src="lib/js/angular-toastr.tpls.js"></script>
 
@@ -43,13 +46,14 @@
 <script src="lib/js/dataTable.js"></script>
 
 <script>
-    var myApp = angular.module("myApp", ['ui.router','ui.bootstrap', 'toastr']);
+    var myApp = angular.module("myApp", ['ui.router','ui.bootstrap', 'toastr', 'angularFileUpload']);
 </script>
 
 <script src="app.js"></script>
 
 <!-- Constant -->
 <script src="constants/status.constant.js"></script>
+<script src="constants/gender.constant.js"></script>
 <script src="constants/api-urls.constant.js"></script>
 <script src="constants/app-settings.constant.js"></script>
 
@@ -61,20 +65,30 @@
 <script src="controllers/login.controller.js"></script>
 <script src="services/user.service.js"></script>
 
+<!--Dashboard-->
 <script src="routes/dashboard.route.js"></script>
 <script src="controllers/dashboard.controller.js"></script>
 
+<!--Specialized-->
 <script src="routes/specialized.route.js"></script>
 <script src="controllers/specialized.controller.js"></script>
 <script src="services/specialized.service.js"></script>
 
+<!--Class-->
 <script src="routes/class.route.js"></script>
 <script src="controllers/class.controller.js"></script>
 <script src="services/class.service.js"></script>
 
-<script src="routes/student.route.js"></script>
-<script src="controllers/student.controller.js"></script>
-<script src="services/student.service.js"></script>
+<!--Student-->
+<script src="routes/student/list-student.route.js"></script>
+<script src="controllers/student/list-student.controller.js"></script>
+<script src="routes/student/add-student.route.js"></script>
+<script src="controllers/student/student-detail.controller.js"></script>
+<script src="services/student/student.service.js"></script>
+<script src="services/student/upload.service.js"></script>
+
+<!--Attachment-->
+<script src="services/attachment.service.js"></script>
 
 <script src="services/ui.service.js"></script>
 

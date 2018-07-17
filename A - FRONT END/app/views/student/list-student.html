@@ -1,0 +1,110 @@
+<div ng-controller="listStudentController">
+    <section class="content ng-scope">
+        <div class="box box-primary ng-scope">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label><b>Username:</b></label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="model.username">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label><b>Full Name:</b></label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="model.fullname">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label><b>Phone:</b></label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="model.phone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label><b>Gender:</b></label>
+                            <div class="form-group">
+                                <select class="form-control"
+                                        ng-options="gender.id as gender.name for gender in genders"
+                                        ng-model="model.gender">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label><b>Status:</b></label>
+                            <div class="form-group">
+                                <select class="form-control"
+                                        ng-options="status.id as status.name for status in statuses"
+                                        ng-model="model.status">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <button type="button" class="btn btn-success" ng-click="search()">Search</button>
+                    <button type="button" class="btn btn-primary" ng-click="reset()">Reset</button>
+                </div>
+            </div>
+
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Full name</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="i in items">
+                        <td>{{i.id}}</td>
+                        <td>{{i.username}}</td>
+                        <td>{{i.fullname}}</td>
+                        <td>{{i.gender ==  1 ? 'Male' : 'Female'}}</td>
+                        <td>{{i.phone}}</td>
+                        <td>{{i.status ==  1 ? 'Active' : 'Deleted'}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="editStudent(i.id)">View</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul uib-pagination ng-if="items.length > 0" total-items="totalItems" ng-model="$parent.currentPage" items-per-page="itemsPerPage" max-size="100" ></ul>
+            </div>
+        </div>
+    </section>
+</div>

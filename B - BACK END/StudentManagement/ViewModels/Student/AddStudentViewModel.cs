@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Database.Enumerations;
 
 namespace StudentManagement.ViewModels.Student
 {
@@ -28,7 +29,7 @@ namespace StudentManagement.ViewModels.Student
         /// Gender
         /// </summary>
         [Required]
-        public bool Gender { get; set; }
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// Phone number

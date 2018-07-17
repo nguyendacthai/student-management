@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace Database.Models.Entities
 {
@@ -35,12 +36,14 @@ namespace Database.Models.Entities
         /// <summary>
         /// Student who studies this class.
         /// </summary>
+        [JsonIgnore]
         [ForeignKey(nameof(StudentId))]
         public virtual Student Student { get; set; }
 
         /// <summary>
         /// Class
         /// </summary>
+        [JsonIgnore]
         [ForeignKey(nameof(ClassId))]
         public virtual Class Class { get; set; }
 

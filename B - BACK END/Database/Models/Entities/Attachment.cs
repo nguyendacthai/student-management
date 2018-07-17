@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Database.Enumerations;
+using Newtonsoft.Json;
 
 namespace Database.Models.Entities
 {
@@ -56,6 +57,7 @@ namespace Database.Models.Entities
         /// <summary>
         /// Student who owns this class.
         /// </summary>
+        [JsonIgnore]
         [ForeignKey(nameof(StudentId))]
         public virtual Student Student { get; set; }
 

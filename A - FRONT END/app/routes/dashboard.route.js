@@ -1,4 +1,5 @@
 angular.module("myApp").config(['$stateProvider', function($stateProvider){
+    //$locationProvider.html5Mode(true);
     var dashboardState = {
         controller : 'dashboardController',
         name: 'dashboard',

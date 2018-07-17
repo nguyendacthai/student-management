@@ -65,7 +65,7 @@ myApp.factory('apiInterceptor', function ($q, $injector) {
                 }
 
                 if (toastr)
-                    toastr.error(szMessage, 'Error');
+                    toastr.error(x.data.message, szMessage);
                 else
                     console.log(szMessage);
                 return $q.reject(x);
