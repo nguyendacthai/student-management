@@ -1,3 +1,43 @@
 .my-drop-zone { border: dotted 3px lightgray; }
 .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
 .another-file-over-class { border: dotted 3px green; }
+
+.img-contain {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.img-contain:hover .image {
+    opacity: 0.3;
+}
+
+.img-contain:hover .middle {
+    opacity: 1;
+}
+
+.img-text {
+    background-color: #4CAF50;
+    color: white;
+    /*font-size: 16px;*/
+    /*padding: 16px 32px;*/
+}

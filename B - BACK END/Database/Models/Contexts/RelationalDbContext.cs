@@ -36,6 +36,11 @@ namespace Database.Models.Contexts
         public DbSet<ClassParticipation> ClassParticipations { get; set; }
 
         /// <summary>
+        /// List of role participations.
+        /// </summary>
+        public DbSet<Role> Roles { get; set; }
+
+        /// <summary>
         /// List of specialized.
         /// </summary>
         public DbSet<Specialized> Specializeds { get; set; }
@@ -44,6 +49,11 @@ namespace Database.Models.Contexts
         /// List of student.
         /// </summary>
         public DbSet<Student> Students { get; set; }
+
+        /// <summary>
+        /// List of student role.
+        /// </summary>
+        public DbSet<UserRole> UserRoles { get; set; }
 
         #endregion
 

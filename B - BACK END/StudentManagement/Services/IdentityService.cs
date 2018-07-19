@@ -7,6 +7,7 @@ using System.Text;
 using Database.Models.Entities;
 using Jose;
 using StudentManagement.Interfaces.Services;
+using StudentManagement.ViewModels.Account;
 
 namespace StudentManagement.Services
 {
@@ -66,11 +67,11 @@ namespace StudentManagement.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public Student FindRequestIdentity(HttpRequestMessage request)
+        public ProfileViewModel FindRequestIdentity(HttpRequestMessage request)
         {
             if (!request.Properties.ContainsKey(ClaimTypes.Actor))
                 return null;
-            return (Student)request.Properties[ClaimTypes.Actor];
+            return (ProfileViewModel)request.Properties[ClaimTypes.Actor];
         }
 
         /// <inheritdoc />

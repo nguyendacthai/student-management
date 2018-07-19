@@ -61,6 +61,15 @@ namespace Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Access Denied.
+        /// </summary>
+        public static string AccessDenied {
+            get {
+                return ResourceManager.GetString("AccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account Not Found.
         /// </summary>
         public static string AccountNotFound {
@@ -93,6 +102,15 @@ namespace Shared.Resources {
         public static string ClassNotFound {
             get {
                 return ResourceManager.GetString("ClassNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Role Assigned To User.
+        /// </summary>
+        public static string NoRoleAssignedToUser {
+            get {
+                return ResourceManager.GetString("NoRoleAssignedToUser", resourceCulture);
             }
         }
         

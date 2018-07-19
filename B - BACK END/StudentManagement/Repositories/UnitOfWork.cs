@@ -11,13 +11,17 @@ using StudentManagement.Interfaces.Repositories;
 using StudentManagement.Interfaces.Repositories.Attachment;
 using StudentManagement.Interfaces.Repositories.Class;
 using StudentManagement.Interfaces.Repositories.ClassParticipation;
+using StudentManagement.Interfaces.Repositories.Role;
 using StudentManagement.Interfaces.Repositories.Specialized;
 using StudentManagement.Interfaces.Repositories.Student;
+using StudentManagement.Interfaces.Repositories.UserRole;
 using StudentManagement.Repositories.Attachment;
 using StudentManagement.Repositories.Class;
 using StudentManagement.Repositories.ClassParticipation;
+using StudentManagement.Repositories.Role;
 using StudentManagement.Repositories.Specialized;
 using StudentManagement.Repositories.Student;
+using StudentManagement.Repositories.UserRole;
 
 namespace StudentManagement.Repositories
 {
@@ -107,6 +111,32 @@ namespace StudentManagement.Repositories
         public IRepositoryStudent RepositoryStudent =>
             _repositoryStudent ?? (_repositoryStudent =
                 new RepositoryStudent(_dbContext));
+
+        /// <summary>
+        ///     Repository which provides function to access into Role.
+        /// </summary>
+        private IRepositoryRole _repositoryRole;
+
+        /// <inheritdoc />
+        /// <summary>
+        ///     Repository which provides functions to access into Role.
+        /// </summary>
+        public IRepositoryRole RepositoryRole =>
+            _repositoryRole ?? (_repositoryRole =
+                new RepositoryRole(_dbContext));
+
+        /// <summary>
+        ///     Repository which provides function to access into User Role.
+        /// </summary>
+        private IRepositoryUserRole _repositoryUserRole;
+
+        /// <inheritdoc />
+        /// <summary>
+        ///     Repository which provides functions to access into User Role.
+        /// </summary>
+        public IRepositoryUserRole RepositoryUserRole =>
+            _repositoryUserRole ?? (_repositoryUserRole =
+                new RepositoryUserRole(_dbContext));
 
         #endregion
 

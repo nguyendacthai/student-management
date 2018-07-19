@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>Access Denied</value>
+  </data>
   <data name="AccountNotFound" xml:space="preserve">
     <value>Account Not Found</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="ClassNotFound" xml:space="preserve">
     <value>Class Not Found</value>
+  </data>
+  <data name="NoRoleAssignedToUser" xml:space="preserve">
+    <value>No Role Assigned To User</value>
   </data>
   <data name="SpecializedNotFound" xml:space="preserve">
     <value>Specialized Not Found</value>

@@ -57,8 +57,10 @@
     <Compile Include="Models\Entities\Attachment.cs" />
     <Compile Include="Models\Entities\Class.cs" />
     <Compile Include="Models\Entities\ClassParticipation.cs" />
+    <Compile Include="Models\Entities\Role.cs" />
     <Compile Include="Models\Entities\Specialized.cs" />
     <Compile Include="Models\Entities\Student.cs" />
+    <Compile Include="Models\Entities\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

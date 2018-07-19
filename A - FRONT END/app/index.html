@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="lib/css/angular-toastr.css" type="text/css" />
   <link rel="stylesheet" href="lib/css/dataTable.css" type="text/css" />
   <link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="lib/css/angular-block-ui.css" type="text/css" />
 </head>
 <body>
 
@@ -45,8 +46,11 @@
 <!-- Data tables -->
 <script src="lib/js/dataTable.js"></script>
 
+<!-- Block UI -->
+<script src="lib/js/angular-block-ui.js"></script>
+
 <script>
-    var myApp = angular.module("myApp", ['ui.router','ui.bootstrap', 'toastr', 'angularFileUpload']);
+    var myApp = angular.module("myApp", ['ui.router','ui.bootstrap', 'toastr', 'angularFileUpload', 'blockUI']);
 </script>
 
 <script src="app.js"></script>

@@ -59,6 +59,9 @@
     <Reference Include="Autofac.Integration.WebApi.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.WebApi2.Owin.4.0.0\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -107,6 +110,10 @@
     <Reference Include="System.Net.Http.WebRequest">
       <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
@@ -163,10 +170,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Attributes\ApiAuthorizeAttribute.cs" />
+    <Compile Include="Attributes\ApiRoleAttribute.cs" />
     <Compile Include="Attributes\ApiUnhandledExceptionFilter.cs" />
     <Compile Include="Attributes\BearerAuthenticationFilter.cs" />
     <Compile Include="Configs\FilterConfig.cs" />
     <Compile Include="Configs\IocConfig.cs" />
+    <Compile Include="Configs\MappingsConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApiBasicController.cs" />
     <Compile Include="Controllers\Attachment\AttachmentController.cs" />
@@ -184,11 +194,14 @@
     <Compile Include="Interfaces\Repositories\IBaseUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IParentRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\Repositories\Role\IRepositoryRole.cs" />
     <Compile Include="Interfaces\Repositories\Specialized\IRepositorySpecialized.cs" />
     <Compile Include="Interfaces\Repositories\Student\IRepositoryStudent.cs" />
+    <Compile Include="Interfaces\Repositories\UserRole\IRepositoryUserRole.cs" />
     <Compile Include="Interfaces\Services\IEncryptionService.cs" />
     <Compile Include="Interfaces\Services\IIdentityService.cs" />
     <Compile Include="Interfaces\Services\ISystemTimeService.cs" />
+    <Compile Include="Models\Account\LoginModel.cs" />
     <Compile Include="Models\Attachment\AttachmentDetailsModel.cs" />
     <Compile Include="Models\Attachment\AttachmentModel.cs" />
     <Compile Include="Models\Generic.cs" />
@@ -197,14 +210,17 @@
     <Compile Include="Repositories\ClassParticipation\RepositoryClassParticipation.cs" />
     <Compile Include="Repositories\Class\RepositoryClass.cs" />
     <Compile Include="Repositories\ParentRepository.cs" />
+    <Compile Include="Repositories\Role\RepositoryRole.cs" />
     <Compile Include="Repositories\Specialized\RepositorySpecialized.cs" />
     <Compile Include="Repositories\Student\RepositoryStudent.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Repositories\UserRole\RepositoryUserRole.cs" />
     <Compile Include="Services\EncryptionService.cs" />
     <Compile Include="Services\IdentityService.cs" />
     <Compile Include="Services\SystemTimeService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Account\ProfileViewModel.cs" />
     <Compile Include="ViewModels\Account\TokenViewModel.cs" />
     <Compile Include="ViewModels\Attachment\AddAttachmentViewModel.cs" />
     <Compile Include="ViewModels\Attachment\SearchAttachmentViewModel.cs" />

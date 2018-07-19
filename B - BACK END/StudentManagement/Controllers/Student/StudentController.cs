@@ -10,6 +10,7 @@ using Database.Enumerations;
 using Shared.Enumerations;
 using Shared.Models;
 using Shared.Resources;
+using StudentManagement.Attributes;
 using StudentManagement.Enumerations;
 using StudentManagement.Interfaces.Repositories;
 using StudentManagement.Interfaces.Services;
@@ -157,7 +158,11 @@ namespace StudentManagement.Controllers.Student
         /// <returns></returns>
         [Route("load-student")]
         [HttpPost]
-        [AllowAnonymous]
+        //[ApiRole(new[]
+        //{
+        //    UserRoles.Admin
+        //})]
+        //        [AllowAnonymous]
         public async Task<IHttpActionResult> LoadStudent(SearchStudentViewModel info)
         {
             #region Parameter validation
@@ -172,6 +177,8 @@ namespace StudentManagement.Controllers.Student
 
             #endregion
 
+            var identity = IdentityService.FindRequestIdentity(Request);
+            
             // Get all student from database
             var students = UnitOfWork.RepositoryStudent.Search();
 

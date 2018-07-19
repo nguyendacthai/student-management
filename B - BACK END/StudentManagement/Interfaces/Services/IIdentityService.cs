@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 using Database.Models.Entities;
+using StudentManagement.ViewModels.Account;
 
 namespace StudentManagement.Interfaces.Services
 {
@@ -49,7 +50,7 @@ namespace StudentManagement.Interfaces.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Student FindRequestIdentity(HttpRequestMessage request);
+        ProfileViewModel FindRequestIdentity(HttpRequestMessage request);
 
         /// <summary>
         ///     Set profile to request message.

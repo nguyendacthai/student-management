@@ -85,7 +85,12 @@
 
                 <div class="col-lg-12" ng-if="model.id">
                     <div class="row">
-                        <img ng-src="{{img}}">
+                        <div class="img-contain">
+                            <img class="image" ng-src="{{img}}" id="picture" download="{{imgName}}">
+                            <div class="middle">
+                                <button class="btn img-text" ng-click="onclick()" ><i class="fa fa-download"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -96,12 +101,6 @@
                         <h3>Select files</h3>
 
                         <div ng-show="uploader.isHTML5">
-                            <!-- 3. nv-file-over uploader="link" over-class="className" -->
-                            <!--<div class="well my-drop-zone" nv-file-over="" uploader="uploader">-->
-                                <!--Base drop zone-->
-                            <!--</div>-->
-
-                            <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
                             <div nv-file-drop="" uploader="fileUploader">
                                 <div nv-file-over="" uploader="fileUploader" over-class="another-file-over-class" class="well my-drop-zone" >
                                     Another drop zone with its own settings
@@ -109,7 +108,6 @@
                             </div>
                         </div>
 
-                        <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
                         <input type="file" nv-file-select="" uploader="fileUploader" ng-model="model.document" /><br/>
                     </div>
                 </div>
@@ -119,7 +117,7 @@
                         <button ng-if="!model.id" type="submit" class="btn btn-success" ng-click="clickSave()">Save</button>
                         <button ng-if="model.id" type="submit" class="btn btn-success" ng-click="clickEdit()">Edit</button>
                         <button type="button" class="btn btn-primary" ng-click="clickCancel()">Cancel</button>
-                        <button type="button" class="btn btn-success" ng-click="clickReset()">Reset</button>
+                        <button ng-if="!model.id" type="button" class="btn btn-success" ng-click="clickReset()">Reset</button>
                     </div>
                 </div>
             </div>

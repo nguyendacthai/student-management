@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using AutoMapper;
 using Microsoft.Owin;
 using Owin;
 using StudentManagement;
@@ -15,6 +16,9 @@ namespace StudentManagement
         // parameter in the WebApp.Start method.
         public void Configuration(IAppBuilder appBuilder)
         {
+            //ConfigureAuth(app);
+            Mapper.Initialize(x => x.AddProfile<MappingsConfig>());
+
             // Configure Web API for self-host. 
             var httpConfiguration = new HttpConfiguration();
 

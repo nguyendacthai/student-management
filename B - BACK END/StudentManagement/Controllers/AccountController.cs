@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 using Database.Enumerations;
 using Shared.Resources;
 using StudentManagement.Interfaces.Repositories;
 using StudentManagement.Interfaces.Services;
-using StudentManagement.Models;
+using StudentManagement.Models.Account;
 using StudentManagement.ViewModels.Account;
 
 namespace StudentManagement.Controllers
@@ -51,7 +49,8 @@ namespace StudentManagement.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("login")]
-        public async Task<IHttpActionResult> Login([FromBody] LoginViewModel info)
+        [AllowAnonymous]
+        public IHttpActionResult Login([FromBody] LoginViewModel info)
         {
             #region Parameters validation
 
@@ -71,30 +70,62 @@ namespace StudentManagement.Controllers
             // Hash the password first.
             var hashedPassword = _encryptionService.InitMd5(info.Password).ToLower();
 
+            // Find accounts from db
             var accounts = UnitOfWork.RepositoryStudent.Search();
 
             accounts = accounts.Where(x =>
-                x.Username.Equals(info.Username) &&
-                x.Password.ToLower() == hashedPassword &&
+                x.Username.Equals(info.Username, StringComparison.InvariantCultureIgnoreCase) &&
                 x.Status == MasterItemStatus.Active);
 
-            // Find account availability.
-            var account = await accounts.FirstOrDefaultAsync();
-            if (account == null)
+            //            // Find account availability.
+            //            var account = await accounts.FirstOrDefaultAsync();
+            //            if (account == null)
+            //                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+            //                    HttpMessages.AccountNotFound));
+
+            // Find roles related to user.
+            var userRoles = UnitOfWork.RepositoryUserRole.Search();
+
+            var userRolesPairs = (from user in accounts
+                                  from userRole in userRoles
+                                  where userRole.StudentId == user.Id
+                                  select new
+                                  {
+                                      User = user,
+                                      UserRole = userRole
+                                  }).ToList();
+
+            var profile = new LoginModel
+            {
+                User = userRolesPairs.Select(x => x.User).FirstOrDefault(),
+                Roles = userRolesPairs.Select(x => x.UserRole.RoleId).ToList()
+            };
+
+            // User is not found in database.
+            if (profile.User == null)
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    HttpMessages.AccountNotFound));
+
+            // Check user role
+            if (profile.Roles == null || profile.Roles.Count < 1)
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.Forbidden,
+                    HttpMessages.NoRoleAssignedToUser));
+
+            // Check Password
+            if (!hashedPassword.Equals(profile.User.Password, StringComparison.InvariantCultureIgnoreCase))
                 return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NotFound,
                     HttpMessages.AccountNotFound));
 
             #region Token initialization
-            
 
             // Initiate claim.
-            var generic = new Generic(account);
+            //var generic = new Generic(account);
 
             var claims = new Dictionary<string, string>
             {
-                {nameof(account.Id), account.Id.ToString()},
-                {nameof(account.Username), account.Username},
-                {nameof(account.Fullname), account.Fullname}
+                {nameof(profile.User.Id), profile.User.Id.ToString()},
+                {nameof(profile.User.Username), profile.User.Username},
+                {nameof(profile.User.Fullname), profile.User.Fullname}
             };
 
             var token = new TokenViewModel();

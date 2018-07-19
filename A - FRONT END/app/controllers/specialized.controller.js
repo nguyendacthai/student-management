@@ -1,4 +1,4 @@
-angular.module("myApp").controller("specializedController", function ($scope, $uibModal, $state, $specialized, uiService, toastr, statusConstant) {
+angular.module("myApp").controller("specializedController", function ($scope, $uibModal, $state, $specialized, uiService, toastr, statusConstant, blockUI) {
 
     //#region Properties
 
@@ -28,6 +28,7 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
 
     // Search specialized
     $scope.search = function () {
+
         var info = {
             names : $scope.model.name != null ? [$scope.model.name] : null,
             statuses : $scope.model.status != null ? [$scope.model.status] : null,
@@ -50,6 +51,7 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
                 var pagedData = $scope.specializeds.records.slice((page - 1) * $scope.itemsPerPage, page * $scope.itemsPerPage);
                 $scope.items = pagedData;
             }
+
         });
     };
 

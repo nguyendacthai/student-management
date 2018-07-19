@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Enumerations\EntryUndo.cs" />
     <Compile Include="Enumerations\SortDirection.cs" />
+    <Compile Include="Enumerations\UserRoles.cs" />
     <Compile Include="Models\Pagination.cs" />
     <Compile Include="Models\Range.cs" />
     <Compile Include="Models\SearchResult.cs" />

@@ -15,7 +15,7 @@ namespace StudentManagement.Configs
         {
             httpFilterCollection.Add(new ApiUnhandledExceptionFilter());
             httpFilterCollection.Add(new BearerAuthenticationFilter());
-            //httpFilterCollection.Add(new ApiAuthorizeAttribute());
+            httpFilterCollection.Add(new ApiAuthorizeAttribute());
         }
 
         #endregion
