@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Web.Http;
 using Database.Enumerations;
 using Shared.Resources;
@@ -25,9 +27,11 @@ namespace StudentManagement.Controllers
         /// <param name="identityService"></param>
         /// <param name="systemTimeService"></param>
         /// <param name="encryptionService"></param>
-        public AccountController(IUnitOfWork unitOfWork, IIdentityService identityService, ISystemTimeService systemTimeService, IEncryptionService encryptionService) : base(unitOfWork, identityService, systemTimeService)
+         /// <param name="emailService"></param>
+        public AccountController(IUnitOfWork unitOfWork, IIdentityService identityService, ISystemTimeService systemTimeService, IEncryptionService encryptionService, IEmailService emailService) : base(unitOfWork, identityService, systemTimeService)
         {
             _encryptionService = encryptionService;
+            _emailService = emailService;
         }
 
         #endregion
@@ -38,6 +42,11 @@ namespace StudentManagement.Controllers
         ///     Service which is for encrypting information.
         /// </summary>
         private readonly IEncryptionService _encryptionService;
+
+        /// <summary>
+        ///     Service which is for sending email.
+        /// </summary>
+        private readonly IEmailService _emailService;
 
         #endregion
 
@@ -132,6 +141,9 @@ namespace StudentManagement.Controllers
             token.Code = IdentityService.EncodeJwt(claims, IdentityService.JwtSecret);
             token.Expiration = SystemTimeService.DateTimeUtcToUnix(DateTime.Now.AddSeconds(IdentityService.JwtLifeTime));
             token.LifeTime = IdentityService.JwtLifeTime;
+
+//            var mailTo = new MailAddress("nguyendacthai1992@gmail.com");
+//            _emailService.SendMail(new[]{ mailTo },"a", "a",null, false, false);
 
             #endregion
 

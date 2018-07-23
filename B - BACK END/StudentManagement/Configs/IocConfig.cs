@@ -43,6 +43,7 @@ namespace StudentManagement.Configs
             // Services registration.
             containerBuilder.RegisterType<EncryptionService>().As<IEncryptionService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<IdentityService>().As<IIdentityService>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<EmailService>().As<IEmailService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<SystemTimeService>().As<ISystemTimeService>().InstancePerLifetimeScope();
 
             #endregion

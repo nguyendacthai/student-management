@@ -87,6 +87,9 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="mustache-sharp, Version=0.2.10.0, Culture=neutral, PublicKeyToken=40ca26c1e088cef4, processorArchitecture=MSIL">
+      <HintPath>..\packages\mustache-sharp.0.2.10\lib\net40\mustache-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -198,6 +201,7 @@
     <Compile Include="Interfaces\Repositories\Specialized\IRepositorySpecialized.cs" />
     <Compile Include="Interfaces\Repositories\Student\IRepositoryStudent.cs" />
     <Compile Include="Interfaces\Repositories\UserRole\IRepositoryUserRole.cs" />
+    <Compile Include="Interfaces\Services\IEmailService.cs" />
     <Compile Include="Interfaces\Services\IEncryptionService.cs" />
     <Compile Include="Interfaces\Services\IIdentityService.cs" />
     <Compile Include="Interfaces\Services\ISystemTimeService.cs" />
@@ -215,6 +219,7 @@
     <Compile Include="Repositories\Student\RepositoryStudent.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRole\RepositoryUserRole.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\EncryptionService.cs" />
     <Compile Include="Services\IdentityService.cs" />
     <Compile Include="Services\SystemTimeService.cs" />
