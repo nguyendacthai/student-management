@@ -36,9 +36,9 @@ namespace StudentManagement.Attributes
             //var memoryCacheService = (IMemoryCacheService)dependencyScope.GetService(typeof(IMemoryCacheService));
 
             // Get profile cache service.
-//            var profileCacheService =
-//                (IValueCacheService<int, ProfileViewModel>)dependencyScope.GetService(
-//                    typeof(IValueCacheService<int, ProfileViewModel>));
+            var profileCacheService =
+                (IValueCacheService<int, ProfileViewModel>)dependencyScope.GetService(
+                    typeof(IValueCacheService<int, ProfileViewModel>));
 
             // FullSearch the principle of request.
             var principle = httpActionContext.RequestContext.Principal;
@@ -92,15 +92,15 @@ namespace StudentManagement.Attributes
             }
 
             // Find profile from cache by using user id.
-//            var iUserId = Convert.ToInt32(userId.Value);
-//            profile = profileCacheService.Read(iUserId);
-//
-//            // Profile has been found in Request.
-//            if (profile != null)
-//            {
-//                identityService.InitRequestIdentity(httpActionContext.Request, profile);
-//                return;
-//            }
+            var iUserId = Convert.ToInt32(userId.Value);
+            profile = profileCacheService.Read(iUserId);
+
+            // Profile has been found in Request.
+            if (profile != null)
+            {
+                identityService.InitRequestIdentity(httpActionContext.Request, profile);
+                return;
+            }
 
             // Find unit of work from lifetime scope.
             var unitOfWork = (IUnitOfWork)dependencyScope.GetService(typeof(IUnitOfWork));
@@ -138,7 +138,7 @@ namespace StudentManagement.Attributes
 
             // Insert account information into HttpItem for later use.
             // Push profile into cache.
-            //profileCacheService.Add(user.Id, profile);
+            profileCacheService.Add(user.Id, profile);
 
             // Insert account information into HttpItem for later use.
 //            var properties = httpActionContext.Request.Properties;

@@ -3,7 +3,7 @@ angular.module("myApp").config(['$stateProvider', '$urlRouterProvider',function(
         controller : 'loginController',
         name : 'login',
         url : '/login',
-        templateUrl : '/views/login.html',
+        templateUrl : '/modules/login/login.html',
     });
 
     $urlRouterProvider.otherwise('/login')

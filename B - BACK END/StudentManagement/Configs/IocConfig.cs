@@ -8,6 +8,7 @@ using StudentManagement.Interfaces.Repositories;
 using StudentManagement.Interfaces.Services;
 using StudentManagement.Repositories;
 using StudentManagement.Services;
+using StudentManagement.ViewModels.Account;
 
 namespace StudentManagement.Configs
 {
@@ -45,6 +46,9 @@ namespace StudentManagement.Configs
             containerBuilder.RegisterType<IdentityService>().As<IIdentityService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<EmailService>().As<IEmailService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<SystemTimeService>().As<ISystemTimeService>().InstancePerLifetimeScope();
+
+            containerBuilder.RegisterType<ProfileCacheService>().As<IValueCacheService<int, ProfileViewModel>>()
+                .SingleInstance();
 
             #endregion
 

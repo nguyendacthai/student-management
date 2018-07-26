@@ -162,7 +162,7 @@ namespace StudentManagement.Controllers.Student
         //{
         //    UserRoles.Admin
         //})]
-        //        [AllowAnonymous]
+        [AllowAnonymous]
         public async Task<IHttpActionResult> LoadStudent(SearchStudentViewModel info)
         {
             #region Parameter validation

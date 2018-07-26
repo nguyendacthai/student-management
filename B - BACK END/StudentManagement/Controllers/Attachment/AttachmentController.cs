@@ -172,6 +172,7 @@ namespace StudentManagement.Controllers.Attachment
         /// <returns></returns>
         [Route("get-attachment/{id}")]
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IHttpActionResult> GetAttachment([FromUri] int id)
         {
             #region FullSearch Attachment

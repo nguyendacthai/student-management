@@ -4,7 +4,7 @@ angular.module("myApp").config(['$stateProvider', function($stateProvider){
         controller : 'dashboardController',
         name: 'dashboard',
         url: '/dashboard',
-        templateUrl: '/views/dashboard.html',
+        templateUrl: 'modules/dashboard/dashboard.html',
     };
     $stateProvider.state(dashboardState);
 }]);

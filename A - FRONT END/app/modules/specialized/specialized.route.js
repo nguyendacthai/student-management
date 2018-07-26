@@ -3,7 +3,7 @@ angular.module("myApp").config(['$stateProvider', function($stateProvider){
         controller : 'specializedController',
         name: 'specialized',
         url: '/specialized',
-        templateUrl: '/views/specialized.html',
+        templateUrl: '/modules/specialized/specialized.html',
         parent : 'dashboard'
     };
     $stateProvider.state(specializedState);

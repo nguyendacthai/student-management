@@ -3,7 +3,7 @@ angular.module("myApp").config(['$stateProvider', function($stateProvider){
         controller : 'studentDetailController',
         name: 'add-student',
         url: '/add-student',
-        templateUrl: '/views/student/student-detail.html',
+        templateUrl: '/modules/student/student-detail.html',
         parent : 'dashboard'
     };
     $stateProvider.state(studentDetailState);

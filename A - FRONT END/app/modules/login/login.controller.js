@@ -1,4 +1,4 @@
-angular.module("myApp").controller("loginController", function ($scope, $user, $state, toastr) {
+angular.module("myApp").controller("loginController", function ($scope, $user, $state, toastr, authenticationService) {
     $scope.model = { username : '', password: ''}
 
     $scope.login = function ($event) {
@@ -7,8 +7,16 @@ angular.module("myApp").controller("loginController", function ($scope, $user, $
             return;
         }
         $user.login($scope.model.username, $scope.model.password).then(function (x) {
+
+            // Save token into local storage.
+            authenticationService.initAuthenticationToken(x.code);
+
             toastr.success('Login successfully')
             $state.go('dashboard')
         });
     };
+
+    $scope.signup = function () {
+        $state.go('signup');
+    }
 });

@@ -10,6 +10,7 @@ using Database.Enumerations;
 using Shared.Enumerations;
 using Shared.Models;
 using Shared.Resources;
+using StudentManagement.Attributes;
 using StudentManagement.Enumerations;
 using StudentManagement.Interfaces.Repositories;
 using StudentManagement.Interfaces.Services;
@@ -43,6 +44,10 @@ namespace StudentManagement.Controllers.Specialized
         /// <returns></returns>
         [HttpPost]
         [Route("")]
+        [ApiRole(new[]
+        {
+            UserRoles.Admin
+        })]
         public async Task<IHttpActionResult> CreateSpecialized([FromBody] AddSpecializedViewModel info)
         {
             #region Parameter validation
@@ -87,6 +92,10 @@ namespace StudentManagement.Controllers.Specialized
         /// <returns></returns>
         [HttpPut]
         [Route("{id}")]
+        [ApiRole(new[]
+        {
+            UserRoles.Normal
+        })]
         public async Task<IHttpActionResult> EditSpecialized([FromUri] int id, [FromBody] EditSpecializedViewModel info)
         {
             #region Parameter validation

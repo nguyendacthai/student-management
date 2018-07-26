@@ -27,11 +27,13 @@ namespace StudentManagement.Controllers
         /// <param name="identityService"></param>
         /// <param name="systemTimeService"></param>
         /// <param name="encryptionService"></param>
-         /// <param name="emailService"></param>
-        public AccountController(IUnitOfWork unitOfWork, IIdentityService identityService, ISystemTimeService systemTimeService, IEncryptionService encryptionService, IEmailService emailService) : base(unitOfWork, identityService, systemTimeService)
+        /// <param name="emailService"></param>
+        /// <param name="profileCacheService"></param>
+        public AccountController(IUnitOfWork unitOfWork, IIdentityService identityService, ISystemTimeService systemTimeService, IEncryptionService encryptionService, IValueCacheService<int, ProfileViewModel> profileCacheService, IEmailService emailService) : base(unitOfWork, identityService, systemTimeService)
         {
             _encryptionService = encryptionService;
             _emailService = emailService;
+            _profileCacheService = profileCacheService;
         }
 
         #endregion
@@ -47,6 +49,11 @@ namespace StudentManagement.Controllers
         ///     Service which is for sending email.
         /// </summary>
         private readonly IEmailService _emailService;
+
+        /// <summary>
+        /// Service which is for caching profile information.
+        /// </summary>
+        private readonly IValueCacheService<int, ProfileViewModel> _profileCacheService;
 
         #endregion
 
@@ -142,8 +149,15 @@ namespace StudentManagement.Controllers
             token.Expiration = SystemTimeService.DateTimeUtcToUnix(DateTime.Now.AddSeconds(IdentityService.JwtLifeTime));
             token.LifeTime = IdentityService.JwtLifeTime;
 
-//            var mailTo = new MailAddress("nguyendacthai1992@gmail.com");
-//            _emailService.SendMail(new[]{ mailTo },"a", "a",null, false, false);
+            // Convert user information to profile.
+            var cachedProfile = AutoMapper.Mapper.Map<Database.Models.Entities.Student, ProfileViewModel>(profile.User);
+            cachedProfile.Roles = profile.Roles;
+
+            // Push information back to cache.
+            _profileCacheService.Add(cachedProfile.Id, cachedProfile);
+
+            //            var mailTo = new MailAddress("datptitcntt@gmail.com");
+            //            _emailService.SendMail(new[]{ mailTo },"Hi", "Hello Dat",null, false, false);
 
             #endregion
 

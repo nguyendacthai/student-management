@@ -1,19 +1,14 @@
-var myApp = angular.module("myApp");
-
-myApp.factory('apiInterceptor', function ($q, $injector) {
+angular.module("myApp").factory('apiInterceptor', function ($q, $injector, authenticationService) {
         return{
             // optional method
-            'request': function(config) {
+            'request': function(x) {
+                // Find authentication token from local storage.
+                var authenticationToken = authenticationService.getAuthenticationToken();
 
-                var $window = $injector.get('$window');
-                // do something on success
-                config.headers = config.headers || {};
-
-                var authData = $window.localStorage.getItem('authorizationData');
-                if (authData) {
-                    config.headers.Authorization = 'Bearer ' + authData.token;
-                }
-                return config;
+                // As authentication token is found. Attach it into the request.
+                if (authenticationToken)
+                    x.headers.Authorization = 'Bearer ' + authenticationToken;
+                return x;
             },
 
             // optional method

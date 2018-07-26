@@ -12,11 +12,11 @@ angular.module("myApp").config(['$stateProvider', function($stateProvider){
     $stateProvider.state('list-student', {
         controller : 'listStudentController',
         url: '/list-student',
-        templateUrl: '/views/student/list-student.html',
+        templateUrl: '/modules/student/list-student.html',
         parent : 'dashboard'
     }).state('edit-student', {
         url : '/edit-student/{id}', //id is
-        templateUrl : '/views/student/student-detail.html',
+        templateUrl : '/modules/student/student-detail.html',
         parent : 'dashboard',
         controller : 'studentDetailController'
     });

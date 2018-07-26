@@ -4,5 +4,6 @@ myApp.constant('appSettings', {
         apiService : 'http://localhost:57701'
     },
 
-    maxPageRecords: 30
+    // Key in local storage to store token.
+    identityStorage: 'identity'
 });
