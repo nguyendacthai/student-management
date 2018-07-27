@@ -10,6 +10,7 @@ using Database.Enumerations;
 using Shared.Enumerations;
 using Shared.Models;
 using Shared.Resources;
+using StudentManagement.Attributes;
 using StudentManagement.Enumerations;
 using StudentManagement.Interfaces.Repositories;
 using StudentManagement.Interfaces.Services;
@@ -43,6 +44,10 @@ namespace StudentManagement.Controllers.Class
         /// <returns></returns>
         [HttpPost]
         [Route("")]
+        [ApiRole(new[]
+        {
+            UserRoles.Admin
+        })]
         public async Task<IHttpActionResult> CreateClass([FromBody] AddClassViewModel info)
         {
             #region Parameter validation
@@ -88,6 +93,10 @@ namespace StudentManagement.Controllers.Class
         /// <returns></returns>
         [HttpPut]
         [Route("{id}")]
+        [ApiRole(new[]
+        {
+            UserRoles.Admin
+        })]
         public async Task<IHttpActionResult> EditClass([FromUri] int id, [FromBody] EditClassViewModel info)
         {
             #region Parameter validation

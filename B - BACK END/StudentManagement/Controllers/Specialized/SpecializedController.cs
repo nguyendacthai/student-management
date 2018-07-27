@@ -94,7 +94,7 @@ namespace StudentManagement.Controllers.Specialized
         [Route("{id}")]
         [ApiRole(new[]
         {
-            UserRoles.Normal
+            UserRoles.Admin
         })]
         public async Task<IHttpActionResult> EditSpecialized([FromUri] int id, [FromBody] EditSpecializedViewModel info)
         {

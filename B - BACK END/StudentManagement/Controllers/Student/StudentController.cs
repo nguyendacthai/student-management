@@ -44,6 +44,10 @@ namespace StudentManagement.Controllers.Student
         /// <returns></returns>
         [HttpPost]
         [Route("")]
+        [ApiRole(new[]
+        {
+            UserRoles.Admin
+        })]
         public async Task<IHttpActionResult> CreateStudent([FromBody] AddStudentViewModel info)
         {
             #region Parameter validation
@@ -92,6 +96,10 @@ namespace StudentManagement.Controllers.Student
         /// <returns></returns>
         [HttpPut]
         [Route("{id}")]
+        [ApiRole(new[]
+        {
+            UserRoles.Admin
+        })]
         public async Task<IHttpActionResult> EditStudent([FromUri] int id, [FromBody] EditStudentViewModel info)
         {
             #region Parameter validation
@@ -158,10 +166,6 @@ namespace StudentManagement.Controllers.Student
         /// <returns></returns>
         [Route("load-student")]
         [HttpPost]
-        //[ApiRole(new[]
-        //{
-        //    UserRoles.Admin
-        //})]
         [AllowAnonymous]
         public async Task<IHttpActionResult> LoadStudent(SearchStudentViewModel info)
         {
