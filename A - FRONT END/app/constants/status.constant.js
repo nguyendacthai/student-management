@@ -1,5 +1,4 @@
-var myApp = angular.module("myApp");
-    myApp.constant('statusConstant', {
+angular.module("myApp").constant('statusConstant', {
         listStatus: [{
                 name : 'Deleted',
                 id : 0

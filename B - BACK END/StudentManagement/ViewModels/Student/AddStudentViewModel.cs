@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Database.Enumerations;
 
 namespace StudentManagement.ViewModels.Student
@@ -35,6 +36,12 @@ namespace StudentManagement.ViewModels.Student
         /// Phone number
         /// </summary>
         public string Phone { get; set; }
+
+        /// <summary>
+        /// User role
+        /// </summary>
+        [Required]
+        public List<int> Roles { get; set; }
 
         #endregion
     }

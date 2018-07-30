@@ -215,7 +215,7 @@ namespace StudentManagement.Controllers
 
             student = UnitOfWork.RepositoryStudent.Insert(student);
 
-            var userRole = new UserRole
+            var userRole = new Database.Models.Entities.UserRole
             {
                 StudentId = student.Id,
                 RoleId = (int)UserRoles.Normal

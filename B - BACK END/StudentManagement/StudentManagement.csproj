@@ -189,10 +189,12 @@
     <Compile Include="Controllers\Class\ClassController.cs" />
     <Compile Include="Controllers\Specialized\SpecializedController.cs" />
     <Compile Include="Controllers\Student\StudentController.cs" />
+    <Compile Include="Controllers\UserRole\UserRoleController.cs" />
     <Compile Include="Enumerations\AttachmentPropertySort.cs" />
     <Compile Include="Enumerations\ClassPropertySort.cs" />
     <Compile Include="Enumerations\SpecializedPropertySort.cs" />
     <Compile Include="Enumerations\StudentPropertySort.cs" />
+    <Compile Include="Enumerations\UserRolePropertySort.cs" />
     <Compile Include="Interfaces\Repositories\Attachment\IRepositoryAttachment.cs" />
     <Compile Include="Interfaces\Repositories\ClassParticipation\IRepositoryClassParticipation.cs" />
     <Compile Include="Interfaces\Repositories\Class\IRepositoryClass.cs" />
@@ -244,6 +246,7 @@
     <Compile Include="ViewModels\Student\AddStudentViewModel.cs" />
     <Compile Include="ViewModels\Student\EditStudentViewModel.cs" />
     <Compile Include="ViewModels\Student\SearchStudentViewModel.cs" />
+    <Compile Include="ViewModels\UserRole\SearchUserRoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

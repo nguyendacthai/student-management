@@ -8,12 +8,12 @@ namespace StudentManagement.ViewModels.Class
     public class SearchClassViewModel
     {
         /// <summary>
-        /// Indexes of specialized
+        /// Indexes of class
         /// </summary>
         public List<int> Ids { get; set; }
 
         /// <summary>
-        /// Names of specialized
+        /// Names of class
         /// </summary>
         public List<string> Names { get; set; }
 
@@ -23,7 +23,7 @@ namespace StudentManagement.ViewModels.Class
         public List<int> SpecializedIds { get; set; }
 
         /// <summary>
-        /// Statuses of specialized.
+        /// Statuses of class.
         /// </summary>
         public List<MasterItemStatus> Statuses { get; set; }
 

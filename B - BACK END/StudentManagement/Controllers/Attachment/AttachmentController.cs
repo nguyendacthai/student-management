@@ -87,7 +87,7 @@ namespace StudentManagement.Controllers.Attachment
                 Status = MasterItemStatus.Active
             };
 
-            //attachment = UnitOfWork.RepositoryAttachment.Insert(attachment);
+            attachment = UnitOfWork.RepositoryAttachment.Insert(attachment);
 
             //await UnitOfWork.CommitAsync();
 

@@ -79,7 +79,7 @@ namespace StudentManagement.Controllers.Specialized
 
             specialized = UnitOfWork.RepositorySpecialized.Insert(specialized);
 
-            await UnitOfWork.CommitAsync();
+            //await UnitOfWork.CommitAsync();
 
             return Ok(specialized);
         }

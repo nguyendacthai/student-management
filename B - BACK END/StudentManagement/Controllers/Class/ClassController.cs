@@ -80,7 +80,7 @@ namespace StudentManagement.Controllers.Class
 
             objClass = UnitOfWork.RepositoryClass.Insert(objClass);
 
-            await UnitOfWork.CommitAsync();
+            //await UnitOfWork.CommitAsync();
 
             return Ok(objClass);
         }

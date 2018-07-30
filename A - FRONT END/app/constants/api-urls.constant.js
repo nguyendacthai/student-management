@@ -24,6 +24,10 @@ myApp.constant('apiUrls', {
         get : 'api/attachment/get-attachment/{id}',
     },
 
+    userRole:{
+        load : 'api/user-role/load-user-role',
+    },
+
 
     account : {
         login : 'api/account/login',

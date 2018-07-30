@@ -83,6 +83,31 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label><b>Role:</b></label>
+                                <div class="form-group">
+                                    <div ng-repeat="role in listRoles">
+                                        <input
+                                                ng-disabled="model.id"
+                                                type="checkbox"
+                                                name="selectedRoles[]"
+                                                value="{{role.name}}"
+                                                ng-model="role.selected"
+                                        > {{role.name}}
+                                    </div>
+
+                                    <ul ng-if="(studentForm.selectedRoles.$dirty || studentForm.$submitted) && studentForm.selectedRoles.$invalid">
+                                        <li style="color: red">Role is required</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-12" ng-if="model.id">
                     <div class="row">
                         <div class="img-contain">

@@ -71,7 +71,7 @@ namespace StudentManagement.Controllers.Student
                 return ResponseMessage(
                     Request.CreateErrorResponse(HttpStatusCode.Conflict, HttpMessages.CannotBeDuplicated));
 
-            var student = new Database.Models.Entities.Student()
+            var student = new Database.Models.Entities.Student
             {
                 Username = info.Username,
                 Password = IdentityService.HashPassword(info.Password),
@@ -81,7 +81,22 @@ namespace StudentManagement.Controllers.Student
                 Status = MasterItemStatus.Active
             };
 
-            //student = UnitOfWork.RepositoryStudent.Insert(student);
+            student = UnitOfWork.RepositoryStudent.Insert(student);
+
+            // Add roles for user
+            if (info.Roles != null)
+            {
+                foreach (var roleId in info.Roles)
+                {
+                    var userRole = new Database.Models.Entities.UserRole
+                    {
+                        StudentId = student.Id,
+                        RoleId = roleId
+                    };
+
+                    UnitOfWork.RepositoryUserRole.Insert(userRole);
+                }
+            }
 
             //await UnitOfWork.CommitAsync();
 
