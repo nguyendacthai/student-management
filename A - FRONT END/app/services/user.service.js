@@ -7,5 +7,14 @@ angular.module('myApp')
             .then(function (x) {
                 return x.data;
             });
+    };
+
+    this.register = function (model) {
+        var url = appSettings.endPoint.apiService + '/' + apiUrls.account.register;
+        return $http
+            .post(url, model)
+            .then(function (x) {
+                return x.data;
+            });
     }
 });

@@ -26,6 +26,7 @@ myApp.constant('apiUrls', {
 
 
     account : {
-        login : 'api/account/login'
+        login : 'api/account/login',
+        register : 'api/account/register'
     }
 });

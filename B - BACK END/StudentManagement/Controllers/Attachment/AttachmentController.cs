@@ -45,6 +45,7 @@ namespace StudentManagement.Controllers.Attachment
         /// <returns></returns>
         [HttpPost]
         [Route("")]
+        [AllowAnonymous]
         public async Task<IHttpActionResult> UploadAttachment([FromBody] AddAttachmentViewModel info)
         {
             #region Parameter validation

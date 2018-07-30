@@ -229,6 +229,7 @@
     <Compile Include="Services\SystemTimeService.cs" />
     <Compile Include="Services\ValueCacheBaseService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Account\AccountRegisterViewModel.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\ProfileViewModel.cs" />
     <Compile Include="ViewModels\Account\TokenViewModel.cs" />

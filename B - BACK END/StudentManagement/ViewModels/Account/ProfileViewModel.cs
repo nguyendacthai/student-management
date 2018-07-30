@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Shared.Enumerations;
 
 namespace StudentManagement.ViewModels.Account
 {

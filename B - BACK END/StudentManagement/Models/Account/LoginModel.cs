@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Database.Models.Entities;
+using Shared.Enumerations;
 
 namespace StudentManagement.Models.Account
 {

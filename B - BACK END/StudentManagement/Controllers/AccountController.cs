@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Database.Enumerations;
+using Database.Models.Entities;
+using Shared.Enumerations;
 using Shared.Resources;
+using StudentManagement.Attributes;
 using StudentManagement.Interfaces.Repositories;
 using StudentManagement.Interfaces.Services;
 using StudentManagement.Models.Account;
 using StudentManagement.ViewModels.Account;
+using StudentManagement.ViewModels.Student;
 
 namespace StudentManagement.Controllers
 {
@@ -164,6 +170,62 @@ namespace StudentManagement.Controllers
             return Ok(token);
 
             #endregion
+        }
+
+        /// <summary>
+        /// Register new account
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("register")]
+        [AllowAnonymous]
+        public async Task<IHttpActionResult> Register([FromBody] AccountRegisterViewModel info)
+        {
+            #region Parameter validation
+
+            if (info == null)
+            {
+                info = new AccountRegisterViewModel();
+                Validate(info);
+            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            #endregion
+
+            var students = UnitOfWork.RepositoryStudent.Search();
+            students =
+                students.Where(x => x.Username.Equals(info.Username, StringComparison.InvariantCultureIgnoreCase));
+
+            // Student exists.
+            if (await students.AnyAsync())
+                return ResponseMessage(
+                    Request.CreateErrorResponse(HttpStatusCode.Conflict, HttpMessages.CannotBeDuplicated));
+
+            var student = new Database.Models.Entities.Student()
+            {
+                Username = info.Username,
+                Password = IdentityService.HashPassword(info.Password),
+                Fullname = info.Fullname,
+                Gender = info.Gender,
+                Phone = info.Phone,
+                Status = MasterItemStatus.Active
+            };
+
+            student = UnitOfWork.RepositoryStudent.Insert(student);
+
+            var userRole = new UserRole
+            {
+                StudentId = student.Id,
+                RoleId = (int)UserRoles.Normal
+            };
+
+            userRole = UnitOfWork.RepositoryUserRole.Insert(userRole);
+
+            //await UnitOfWork.CommitAsync();
+
+            return Ok();
         }
 
         #endregion
