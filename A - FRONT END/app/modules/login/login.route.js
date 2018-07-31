@@ -5,6 +5,5 @@ angular.module("myApp").config(['$stateProvider', '$urlRouterProvider',function(
         url : '/login',
         templateUrl : '/modules/login/login.html',
     });
-
     $urlRouterProvider.otherwise('/login')
 }]);

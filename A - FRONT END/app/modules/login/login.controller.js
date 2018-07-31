@@ -10,7 +10,6 @@ angular.module("myApp").controller("loginController", function ($scope, $user, $
 
             // Save token into local storage.
             authenticationService.initAuthenticationToken(x.code);
-
             toastr.success('Login successfully')
             $state.go('dashboard')
         });

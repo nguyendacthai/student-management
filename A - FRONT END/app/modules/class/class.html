@@ -1,4 +1,4 @@
-<div ng-controller="classController">
+<div>
     <section class="content ng-scope">
         <div class="box box-primary ng-scope">
             <div class="row">
@@ -67,7 +67,7 @@
                     <tr ng-repeat="i in items">
                         <td>{{i.id}}</td>
                         <td>{{i.name}}</td>
-                        <td>{{i.specialized.name}}</td>
+                        <td>{{i.specializedId}}</td>
                         <td>{{i.status ==  1 ? 'Active' : 'Deleted'}}</td>
                         <td>
                             <button class="btn btn-primary" ng-click="editClass(i.id)">View</button>

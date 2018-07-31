@@ -93,15 +93,17 @@
                                         <input
                                                 ng-disabled="model.id"
                                                 type="checkbox"
-                                                name="selectedRoles[]"
-                                                value="{{role.name}}"
+                                                value="{{role.id}}"
                                                 ng-model="role.selected"
+                                                ng-required="isOptionsRequired()"
                                         > {{role.name}}
                                     </div>
-
-                                    <ul ng-if="(studentForm.selectedRoles.$dirty || studentForm.$submitted) && studentForm.selectedRoles.$invalid">
+                                    <ul ng-if="isOptionsRequired() && !model.id">
                                         <li style="color: red">Role is required</li>
                                     </ul>
+                                    <!--<ul ng-if="(studentForm.roleValid.$dirty || studentForm.$submitted) && studentForm.roleValid.$invalid">-->
+                                        <!--<li style="color: red">Role is required</li>-->
+                                    <!--</ul>-->
                                 </div>
                             </div>
                         </div>
@@ -112,7 +114,7 @@
                     <div class="row">
                         <div class="img-contain">
                             <img class="image" ng-src="{{img}}" id="picture" download="{{imgName}}">
-                            <div class="middle">
+                            <div class="middle" ng-if="imgName">
                                 <button class="btn img-text" ng-click="onclick()" ><i class="fa fa-download"></i></button>
                             </div>
                         </div>

@@ -57,6 +57,18 @@ angular.module("myApp").controller("classController", function ($scope, $uibModa
             function setPagingData(page) {
                 var pagedData = $scope.classes.records.slice((page - 1) * $scope.itemsPerPage, page * $scope.itemsPerPage);
                 $scope.items = pagedData;
+                // for (var i = 0 ; i < $scope.items.length; i ++){
+                //     debugger
+                //     var data = {
+                //         ids : [$scope.items[i].specializedId]
+                //     }
+                //     $specialized.loadSpecialized(data).then(function (x) {
+                //         console.log(x);
+                //         //console.log(x.records[i].name);
+                //         //$scope.items.push(x.records[i].name);
+                //     })
+                // }
+                //console.log($scope.items);
             }
         });
     };

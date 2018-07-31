@@ -15,8 +15,6 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
     // models of list-student.html
     $scope.model = {};
 
-    $scope.roles = [];
-
     $scope.fileUploader = new FileUploader({
         url : appSettings.endPoint.apiService + '/' + apiUrls.attachment.create
     });
@@ -44,6 +42,12 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
         });
     }, true);
 
+    // Check required role field
+    $scope.isOptionsRequired = function(){
+        return !$scope.listRoles.some(function(options){
+            return options.selected;
+        });
+    };
     // Get student information
 
     var id = $stateParams.id;
@@ -65,7 +69,6 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
                             // Helper method to get selected roles
                             $scope.listRoles[i].selected = true;
 
-                            //$scope.listRoles[i].selected = false;
                         }
                     }
                 }
