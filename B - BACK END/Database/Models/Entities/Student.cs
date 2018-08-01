@@ -44,10 +44,21 @@ namespace Database.Models.Entities
         public Gender Gender { get; set; }
 
         /// <summary>
+        /// Email of student
+        /// </summary>
+        [Required]
+        public string Email { get; set; }
+
+        /// <summary>
         /// Phone number of student
         /// </summary>
         [StringLength(20)]
         public string Phone { get; set; }
+
+        /// <summary>
+        /// Check student forget password or not
+        /// </summary>
+        public bool ForgotPassword { get; set; }
 
         /// <summary>
         /// Whether student is active or not.
