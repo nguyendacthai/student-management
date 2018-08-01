@@ -8,7 +8,8 @@
                             <div class="col-lg-12">
                                 <label><b>Username:</b></label>
                                 <div class="form-group">
-                                    <input ng-disabled="model.id" type="text" class="form-control" ng-model="model.username" name="usernameValid" required>
+                                    <input ng-disabled="model.id" type="text" class="form-control"
+                                           ng-model="model.username" name="usernameValid" required>
 
                                     <ul ng-if="(studentForm.usernameValid.$dirty || studentForm.$submitted) && studentForm.usernameValid.$invalid">
                                         <li style="color: red">Username is required</li>
@@ -23,7 +24,8 @@
                             <div class="col-lg-12">
                                 <label><b>Full Name:</b></label>
                                 <div class="form-group">
-                                    <input ng-disabled="model.id" type="text" class="form-control" ng-model="model.fullname" name="fullNameValid" required>
+                                    <input ng-disabled="model.id" type="text" class="form-control"
+                                           ng-model="model.fullname" name="fullNameValid" required>
 
                                     <ul ng-if="(studentForm.fullNameValid.$dirty || studentForm.$submitted) && studentForm.fullNameValid.$invalid">
                                         <li style="color: red">Full name is required</li>
@@ -40,7 +42,8 @@
                             <div class="col-lg-12">
                                 <label><b>Password:</b></label>
                                 <div class="form-group">
-                                    <input ng-disabled="model.id" type="password" class="form-control" ng-model="model.password" name="passwordValid" required>
+                                    <input ng-disabled="model.id" type="password" class="form-control"
+                                           ng-model="model.password" name="passwordValid" required>
 
                                     <ul ng-if="(studentForm.passwordValid.$dirty || studentForm.$submitted) && studentForm.passwordValid.$invalid">
                                         <li style="color: red">Password is required</li>
@@ -68,7 +71,8 @@
                             <div class="col-lg-12">
                                 <label><b>Email:</b></label>
                                 <div class="form-group">
-                                    <input ng-disabled="model.id" type="email" class="form-control" ng-model="model.email" name="emailValid" required>
+                                    <input ng-disabled="model.id" type="email" class="form-control"
+                                           ng-model="model.email" name="emailValid" required>
 
                                     <ul ng-if="(studentForm.emailValid.$dirty || studentForm.$submitted) && studentForm.emailValid.$invalid">
                                         <li style="color: red">Email is required</li>
@@ -117,7 +121,7 @@
                                         <li style="color: red">Role is required</li>
                                     </ul>
                                     <!--<ul ng-if="(studentForm.roleValid.$dirty || studentForm.$submitted) && studentForm.roleValid.$invalid">-->
-                                        <!--<li style="color: red">Role is required</li>-->
+                                    <!--<li style="color: red">Role is required</li>-->
                                     <!--</ul>-->
                                 </div>
                             </div>
@@ -130,7 +134,8 @@
                         <div class="img-contain">
                             <img class="image" ng-src="{{img}}" id="picture" download="{{imgName}}">
                             <div class="middle" ng-if="imgName">
-                                <button class="btn img-text" ng-click="onclick()" ><i class="fa fa-download"></i></button>
+                                <button class="btn img-text" ng-click="onclick()"><i class="fa fa-download"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -144,22 +149,26 @@
 
                         <div ng-show="uploader.isHTML5">
                             <div nv-file-drop="" uploader="fileUploader">
-                                <div nv-file-over="" uploader="fileUploader" over-class="another-file-over-class" class="well my-drop-zone" >
+                                <div nv-file-over="" uploader="fileUploader" over-class="another-file-over-class"
+                                     class="well my-drop-zone">
                                     Another drop zone with its own settings
                                 </div>
                             </div>
                         </div>
 
-                        <input type="file" nv-file-select="" uploader="fileUploader" ng-model="model.document" /><br/>
+                        <input type="file" nv-file-select="" uploader="fileUploader" ng-model="model.document"/><br/>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <button ng-if="!model.id" type="submit" class="btn btn-success" ng-click="clickSave()">Save</button>
-                        <button ng-if="model.id" type="submit" class="btn btn-success" ng-click="clickEdit()">Edit</button>
+                        <button ng-if="!model.id" type="submit" class="btn btn-success" ng-click="clickSave()">Save
+                        </button>
+                        <button ng-if="model.id" type="submit" class="btn btn-success" ng-click="clickEdit()">Edit
+                        </button>
                         <button type="button" class="btn btn-primary" ng-click="clickCancel()">Cancel</button>
-                        <button ng-if="!model.id" type="button" class="btn btn-success" ng-click="clickReset()">Reset</button>
+                        <button ng-if="!model.id" type="button" class="btn btn-success" ng-click="clickReset()">Reset
+                        </button>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
     $scope.model = {};
 
     $scope.fileUploader = new FileUploader({
-        url : appSettings.endPoint.apiService + '/' + apiUrls.attachment.create
+        url: appSettings.endPoint.apiService + '/' + apiUrls.attachment.create
     });
 
     //#endregion
@@ -25,7 +25,7 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
 
 
     //init
-    $scope.init = function(){
+    $scope.init = function () {
         $scope.listRoles = angular.copy(roleConstant.listRole);
     }
     // Checkbox for roles
@@ -43,8 +43,8 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
     }, true);
 
     // Check required role field
-    $scope.isOptionsRequired = function(){
-        return !$scope.listRoles.some(function(options){
+    $scope.isOptionsRequired = function () {
+        return !$scope.listRoles.some(function (options) {
             return options.selected;
         });
     };
@@ -52,19 +52,19 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
 
     var id = $stateParams.id;
 
-    if (id != 0 && id != undefined){
-        $student.loadStudent({ids : [id]}).then(function (x) {
+    if (id != 0 && id != undefined) {
+        $student.loadStudent({ids: [id]}).then(function (x) {
             $scope.model = x.records[0];
 
             var data = {
-                studentIds : [x.records[0].id]
+                studentIds: [x.records[0].id]
             };
 
             // Load user role
             $userRole.loadUserRole(data).then(function (x) {
-                if (x.records.length > 0){
-                    for (var i = 0; i < x.records.length; i++){
-                        if (x.records[i].roleId == $scope.listRoles[i].id){
+                if (x.records.length > 0) {
+                    for (var i = 0; i < x.records.length; i++) {
+                        if (x.records[i].roleId == $scope.listRoles[i].id) {
 
                             // Helper method to get selected roles
                             $scope.listRoles[i].selected = true;
@@ -76,7 +76,7 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
 
             // Load attachment
             $attachment.loadAttachment(data).then(function (x) {
-                if (x.records.length > 0){
+                if (x.records.length > 0) {
                     $attachment.getAttachment(x.records[0].id).then(function (y) {
                         $scope.imgName = y.name + "." + y.type;
                         $scope.img = 'data:image/jpg;base64,' + y.content;
@@ -86,14 +86,14 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
         });
 
         // Download img
-        $scope.onclick = function() {
+        $scope.onclick = function () {
             var img = document.getElementById('picture').getAttribute('src');
             // atob to base64_decode the data-URI
             var image_data = atob(img.split(',')[1]);
             // Use typed arrays to convert the binary data to a Blob
             var arraybuffer = new ArrayBuffer(image_data.length);
             var view = new Uint8Array(arraybuffer);
-            for (var i=0; i<image_data.length; i++) {
+            for (var i = 0; i < image_data.length; i++) {
                 view[i] = image_data.charCodeAt(i) & 0xff;
             }
             try {
@@ -130,9 +130,10 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
                 toastr.success('Edit student successfully');
             });
         };
-    };
+    }
+    ;
 
-    $scope.fileUploader.onAfterAddingFile = function(fileItem) {
+    $scope.fileUploader.onAfterAddingFile = function (fileItem) {
         $scope.document = fileItem._file;
     };
 
@@ -146,14 +147,14 @@ angular.module("myApp").controller("studentDetailController", function ($scope, 
             gender: null
         };
     };
-    
+
     // Create student
     $scope.clickSave = function () {
         if ($scope.studentForm.$invalid) {
             return
         }
         $student.createStudent($scope.model).then(function (x) {
-            if ($scope.document != null){
+            if ($scope.document != null) {
                 $upload.upload(x.id, $scope.document).then(function () {
                     toastr.success('Create student successfully');
                 });

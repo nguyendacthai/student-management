@@ -1,6 +1,6 @@
 <section class="wrapper-md bg-dark" style="height: 100%">
-        <div class="container aside-xxl">
-        <a class="navbar-brand block" >Login Page</a>
+    <div class="container aside-xxl">
+        <a class="navbar-brand block">Login Page</a>
         <section class="panel panel-default bg-white m-t-lg">
             <header class="panel-heading text-center">
                 <strong>Sign in</strong>
@@ -8,28 +8,36 @@
             <form novalidate ng-submit="login($event)" class="panel-body wrapper-lg" name="loginForm">
                 <div class="form-group">
                     <label class="control-label">Email</label>
-                    <input placeholder="Username" class="form-control input-lg" ng-model="model.username" name="loginName" required>
+                    <input placeholder="Username" class="form-control input-lg" ng-model="model.username"
+                           name="loginName" required>
                     <ul ng-if="(loginForm.loginName.$dirty || loginForm.$submitted) && loginForm.loginName.$invalid">
                         <li style="color: red">Username is required</li>
                     </ul>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Password</label>
-                    <input type="password" placeholder="Password" class="form-control input-lg" ng-model="model.password" name="loginPass" required>
+                    <input type="password" placeholder="Password" class="form-control input-lg"
+                           ng-model="model.password" name="loginPass" required>
                     <ul ng-if="(loginForm.loginPass.$dirty || loginForm.$submitted) && loginForm.loginPass.$invalid">
                         <li style="color: red">Password is required</li>
                     </ul>
                 </div>
 
-                <a class="pull-right m-t-xs" style="cursor: pointer" ng-click="forgotPassword()"><small>Forgot password?</small></a>
+                <a class="pull-right m-t-xs" style="cursor: pointer" ng-click="forgotPassword()">
+                    <small>Forgot password?</small>
+                </a>
 
                 <button type="submit" class="btn btn-primary">Sign in</button>
 
                 <div class="line line-dashed"></div>
-                <a href="#" class="btn btn-facebook btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in with Facebook</a>
-                <a href="#" class="btn btn-twitter btn-block"><i class="fa fa-twitter pull-left"></i>Sign in with Twitter</a>
+                <a href="#" class="btn btn-facebook btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in
+                    with Facebook</a>
+                <a href="#" class="btn btn-twitter btn-block"><i class="fa fa-twitter pull-left"></i>Sign in with
+                    Twitter</a>
                 <div class="line line-dashed"></div>
-                <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                <p class="text-muted text-center">
+                    <small>Do not have an account?</small>
+                </p>
                 <a class="btn btn-default btn-block" ng-click="signup()">Create an account</a>
             </form>
         </section>
@@ -38,11 +46,11 @@
 
 <!-- footer -->
 <!--<footer id="footer">-->
-    <!--<div class="text-center padder">-->
-        <!--<p>-->
-            <!--<small>Web app framework base on Bootstrap<br>&copy; 2018</small>-->
-        <!--</p>-->
-    <!--</div>-->
+<!--<div class="text-center padder">-->
+<!--<p>-->
+<!--<small>Web app framework base on Bootstrap<br>&copy; 2018</small>-->
+<!--</p>-->
+<!--</div>-->
 <!--</footer>-->
 <!-- / footer -->
 </div>

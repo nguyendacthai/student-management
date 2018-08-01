@@ -1,4 +1,4 @@
-angular.module("myApp").config(['$stateProvider', function($stateProvider){
+angular.module("myApp").config(['$stateProvider', function ($stateProvider) {
     // var listStudentState = {
     //     controller : 'listStudentController',
     //     name: 'list-student',
@@ -10,14 +10,14 @@ angular.module("myApp").config(['$stateProvider', function($stateProvider){
     // $stateProvider.state(listStudentState).state();
 
     $stateProvider.state('list-student', {
-        controller : 'listStudentController',
+        controller: 'listStudentController',
         url: '/list-student',
         templateUrl: '/modules/student/list-student.html',
-        parent : 'dashboard'
+        parent: 'dashboard'
     }).state('edit-student', {
-        url : '/edit-student/{id}', //id is
-        templateUrl : '/modules/student/student-detail.html',
-        parent : 'dashboard',
-        controller : 'studentDetailController'
+        url: '/edit-student/{id}', //id is
+        templateUrl: '/modules/student/student-detail.html',
+        parent: 'dashboard',
+        controller: 'studentDetailController'
     });
 }]);

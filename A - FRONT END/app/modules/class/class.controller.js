@@ -11,16 +11,16 @@ angular.module("myApp").controller("classController", function ($scope, $uibModa
     $scope.classes = [];
 
     $scope.modals = {
-        class : null
+        class: null
     };
 
     // Information which is for binding to initiator directive.
     $scope.info = {
-        id : null,
-        specialized : null,
-        name : null,
-        status : null,
-        specializedId : null
+        id: null,
+        specialized: null,
+        name: null,
+        status: null,
+        specializedId: null
     };
 
     //#endregion
@@ -37,9 +37,9 @@ angular.module("myApp").controller("classController", function ($scope, $uibModa
     // Search class
     $scope.search = function () {
         var data = {
-            names : $scope.model.name != null ? [$scope.model.name] : null,
-            statuses : $scope.model.status != null ? [$scope.model.status] : null,
-            specializedIds : $scope.model.specialized != null ? [$scope.model.specialized] : null,
+            names: $scope.model.name != null ? [$scope.model.name] : null,
+            statuses: $scope.model.status != null ? [$scope.model.status] : null,
+            specializedIds: $scope.model.specialized != null ? [$scope.model.specialized] : null,
         };
 
         $class.loadClass(data).then(function (x) {
@@ -50,10 +50,11 @@ angular.module("myApp").controller("classController", function ($scope, $uibModa
             $scope.itemsPerPage = 3;
             $scope.loading = false;
 
-            $scope.$watch("currentPage", function() {
+            $scope.$watch("currentPage", function () {
                 setPagingData($scope.currentPage);
 
             });
+
             function setPagingData(page) {
                 var pagedData = $scope.classes.records.slice((page - 1) * $scope.itemsPerPage, page * $scope.itemsPerPage);
                 $scope.items = pagedData;
@@ -89,7 +90,7 @@ angular.module("myApp").controller("classController", function ($scope, $uibModa
     // Show popup when edit class
     $scope.editClass = function (id) {
         var data = {
-            ids : [id]
+            ids: [id]
         };
 
         $class.loadClass(data).then(function (x) {
@@ -107,7 +108,7 @@ angular.module("myApp").controller("classController", function ($scope, $uibModa
     $scope.initClass = function (info) {
         info.specializedId = info.specialized;
 
-        if (info.id == null || info.id < 1){
+        if (info.id == null || info.id < 1) {
             $class.createClass(info).then(function () {
                 toastr.success('Create class successfully');
 

@@ -21,7 +21,7 @@ angular.module("myApp").directive('specializedModal', function () {
             $scope.model = {
                 id: $scope.ngInfo.id,
                 name: $scope.ngInfo.name,
-                status : $scope.ngInfo.status
+                status: $scope.ngInfo.status
             };
 
             /*
@@ -34,7 +34,7 @@ angular.module("myApp").directive('specializedModal', function () {
             /*
             * Callback which is raised when ok button is clicked.
             * */
-            $scope.clickOk = function(){
+            $scope.clickOk = function () {
 
                 if ($scope.specializedForm.$invalid) {
                     return

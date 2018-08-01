@@ -1,9 +1,9 @@
 angular.module("myApp").controller("loginController", function ($scope, $user, $state, toastr, authenticationService) {
-    $scope.model = { };
+    $scope.model = {};
 
     $scope.login = function ($event) {
         $event.preventDefault();
-        if($scope.loginForm.$invalid){
+        if ($scope.loginForm.$invalid) {
             return;
         }
         $user.login($scope.model).then(function (x) {

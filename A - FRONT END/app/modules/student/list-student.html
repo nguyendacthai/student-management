@@ -94,16 +94,17 @@
                         <td>{{i.id}}</td>
                         <td>{{i.username}}</td>
                         <td>{{i.fullname}}</td>
-                        <td>{{i.gender ==  1 ? 'Male' : 'Female'}}</td>
+                        <td>{{i.gender == 1 ? 'Male' : 'Female'}}</td>
                         <td>{{i.phone}}</td>
-                        <td>{{i.status ==  1 ? 'Active' : 'Deleted'}}</td>
+                        <td>{{i.status == 1 ? 'Active' : 'Deleted'}}</td>
                         <td>
                             <button class="btn btn-primary" ng-click="editStudent(i.id)">View</button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <ul uib-pagination ng-if="items.length > 0" total-items="totalItems" ng-model="$parent.currentPage" items-per-page="itemsPerPage" max-size="100" ></ul>
+                <ul uib-pagination ng-if="items.length > 0" total-items="totalItems" ng-model="$parent.currentPage"
+                    items-per-page="itemsPerPage" max-size="100"></ul>
             </div>
         </div>
     </section>

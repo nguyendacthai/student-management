@@ -31,9 +31,9 @@ angular.module("myApp").directive('classModal', function () {
             $scope.model = {
                 id: $scope.ngInfo.id,
                 name: $scope.ngInfo.name,
-                status : $scope.ngInfo.status,
-                specialized : $scope.ngInfo.specialized,
-                specializedId : null
+                status: $scope.ngInfo.status,
+                specialized: $scope.ngInfo.specialized,
+                specializedId: null
             };
 
             /*
@@ -46,7 +46,7 @@ angular.module("myApp").directive('classModal', function () {
             /*
             * Callback which is raised when ok button is clicked.
             * */
-            $scope.clickOk = function(){
+            $scope.clickOk = function () {
 
                 if ($scope.classForm.$invalid) {
                     return

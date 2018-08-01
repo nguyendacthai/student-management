@@ -1,10 +1,10 @@
-angular.module("myApp").config(['$stateProvider', function($stateProvider){
+angular.module("myApp").config(['$stateProvider', function ($stateProvider) {
     var studentDetailState = {
-        controller : 'studentDetailController',
+        controller: 'studentDetailController',
         name: 'add-student',
         url: '/add-student',
         templateUrl: '/modules/student/student-detail.html',
-        parent : 'dashboard'
+        parent: 'dashboard'
     };
     $stateProvider.state(studentDetailState);
 }]);

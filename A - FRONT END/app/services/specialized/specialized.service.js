@@ -1,14 +1,14 @@
 angular.module('myApp')
-    .service('$specialized',function(appSettings, apiUrls, $http){
+    .service('$specialized', function (appSettings, apiUrls, $http) {
         this.createSpecialized = function (s) {
             var url = appSettings.endPoint.apiService + '/' + apiUrls.specialized.create;
             return $http
-                .post(url,s)
+                .post(url, s)
                 .then(function (x) {
                     return x.data;
                 });
         };
-        
+
         this.editSpecialized = function (id, info) {
             var url = appSettings.endPoint.apiService + '/' + apiUrls.specialized.update;
             url = url.replace('{id}', id);

@@ -170,6 +170,19 @@ namespace StudentManagement.Controllers
         }
 
         /// <summary>
+        ///     Get user profile attached with request (parsed by authenticatoin attribute)
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("personal-profile")]
+        public IHttpActionResult FindPersonalProfile()
+        {
+            // Find profile attached with request.
+            var profile = IdentityService.FindRequestIdentity(Request);
+            return Ok(profile);
+        }
+
+        /// <summary>
         /// Register new account
         /// </summary>
         /// <param name="info"></param>

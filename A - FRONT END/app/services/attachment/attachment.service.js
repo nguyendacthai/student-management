@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .service('$attachment',function(appSettings, apiUrls, $http) {
+    .service('$attachment', function (appSettings, apiUrls, $http) {
         this.loadAttachment = function (info) {
             var url = appSettings.endPoint.apiService + '/' + apiUrls.attachment.load;
             return $http

@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .service('authenticationService',function($window, appSettings){
+    .service('authenticationService', function ($window, appSettings) {
         return {
             /*
             * Getting authentication token from localStorage.

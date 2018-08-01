@@ -12,14 +12,14 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
     $scope.specializeds = [];
 
     $scope.modals = {
-        specialized : null
+        specialized: null
     };
 
     // Information which is for binding to initiator directive.
     $scope.info = {
-        id : null,
-        name : null,
-        status : null
+        id: null,
+        name: null,
+        status: null
     };
 
     //#endregion
@@ -30,8 +30,8 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
     $scope.search = function () {
 
         var info = {
-            names : $scope.model.name != null ? [$scope.model.name] : null,
-            statuses : $scope.model.status != null ? [$scope.model.status] : null,
+            names: $scope.model.name != null ? [$scope.model.name] : null,
+            statuses: $scope.model.status != null ? [$scope.model.status] : null,
         };
 
         $specialized.loadSpecialized(info).then(function (x) {
@@ -43,10 +43,11 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
             $scope.itemsPerPage = 3;
             $scope.loading = false;
 
-            $scope.$watch("currentPage", function() {
+            $scope.$watch("currentPage", function () {
                 setPagingData($scope.currentPage);
 
             });
+
             function setPagingData(page) {
                 var pagedData = $scope.specializeds.records.slice((page - 1) * $scope.itemsPerPage, page * $scope.itemsPerPage);
                 $scope.items = pagedData;
@@ -71,7 +72,7 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
     // Show popup when edit specialized
     $scope.editSpecialized = function (id) {
         var data = {
-            ids : [id]
+            ids: [id]
         };
 
         $specialized.loadSpecialized(data).then(function (x) {
@@ -87,7 +88,7 @@ angular.module("myApp").controller("specializedController", function ($scope, $u
     // Create or update specialized
     $scope.initSpecialized = function (info) {
 
-        if (info.id == null || info.id < 1){
+        if (info.id == null || info.id < 1) {
             $specialized.createSpecialized(info).then(function () {
                 toastr.success('Create specialized successfully');
 

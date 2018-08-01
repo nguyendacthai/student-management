@@ -1,4 +1,4 @@
-angular.module("myApp").controller("forgotPasswordController", function ($scope, genderConstant,toastr, $user, $state, appSettings, apiUrls,) {
+angular.module("myApp").controller("forgotPasswordController", function ($scope, genderConstant, toastr, $user, $state, appSettings, apiUrls,) {
     //#region Properties
 
     // models of forgot-password.html

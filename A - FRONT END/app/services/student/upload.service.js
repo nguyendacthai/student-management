@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .service('$upload',function(appSettings, apiUrls, $http) {
+    .service('$upload', function (appSettings, apiUrls, $http) {
         this.upload = function (studentId, document) {
             var url = appSettings.endPoint.apiService + '/' + apiUrls.attachment.create;
             let f = new FormData();

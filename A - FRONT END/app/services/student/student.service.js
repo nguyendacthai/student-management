@@ -1,9 +1,9 @@
 angular.module('myApp')
-    .service('$student',function(appSettings, apiUrls, $http){
+    .service('$student', function (appSettings, apiUrls, $http) {
         this.createStudent = function (s) {
             var url = appSettings.endPoint.apiService + '/' + apiUrls.student.create;
             return $http
-                .post(url,s)
+                .post(url, s)
                 .then(function (x) {
                     return x.data;
                 });

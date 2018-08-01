@@ -48,20 +48,23 @@
                     <tr ng-repeat="i in items">
                         <td>{{i.id}}</td>
                         <td>{{i.name}}</td>
-                        <td>{{i.status ==  1 ? 'Active' : 'Deleted'}}</td>
+                        <td>{{i.status == 1 ? 'Active' : 'Deleted'}}</td>
                         <td>
                             <button class="btn btn-primary" ng-click="editSpecialized(i.id)">View</button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <ul uib-pagination ng-if="items.length > 0" total-items="totalItems" ng-model="$parent.currentPage" items-per-page="itemsPerPage" max-size="100" ></ul>
+                <ul uib-pagination ng-if="items.length > 0" total-items="totalItems" ng-model="$parent.currentPage"
+                    items-per-page="itemsPerPage" max-size="100"></ul>
             </div>
         </div>
     </section>
 
     <div>
-        <button type="button" class="btn btn-primary" ng-click="info = {}; modals.specialized = displayModal('specialized-modal.html', 'md')">Add</button>
+        <button type="button" class="btn btn-primary"
+                ng-click="info = {}; modals.specialized = displayModal('specialized-modal.html', 'md')">Add
+        </button>
     </div>
 </div>
 
