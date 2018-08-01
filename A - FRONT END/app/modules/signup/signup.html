@@ -12,7 +12,7 @@
                 <div class="col-lg-12">
                   <label><b>Username:</b></label>
                   <div class="form-group">
-                    <input ng-disabled="model.id" type="text" class="form-control" ng-model="model.username" name="usernameValid" required>
+                    <input type="text" class="form-control" ng-model="model.username" name="usernameValid" required>
 
                     <ul ng-if="(signupForm.usernameValid.$dirty || signupForm.$submitted) && signupForm.usernameValid.$invalid">
                       <li style="color: red">Username is required</li>
@@ -27,7 +27,7 @@
                 <div class="col-lg-12">
                   <label><b>Full Name:</b></label>
                   <div class="form-group">
-                    <input ng-disabled="model.id" type="text" class="form-control" ng-model="model.fullname" name="fullNameValid" required>
+                    <input type="text" class="form-control" ng-model="model.fullname" name="fullNameValid" required>
 
                     <ul ng-if="(signupForm.fullNameValid.$dirty || signupForm.$submitted) && signupForm.fullNameValid.$invalid">
                       <li style="color: red">Full name is required</li>
@@ -45,7 +45,7 @@
                 <div class="col-lg-12">
                   <label><b>Password:</b></label>
                   <div class="form-group">
-                    <input ng-disabled="model.id" type="password" class="form-control" ng-model="model.password" name="passwordValid" required>
+                    <input type="password" class="form-control" ng-model="model.password" name="passwordValid" required>
 
                     <ul ng-if="(signupForm.passwordValid.$dirty || signupForm.$submitted) && signupForm.passwordValid.$invalid">
                       <li style="color: red">Password is required</li>
@@ -68,6 +68,21 @@
           </div>
 
           <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-12">
+                  <label><b>Email:</b></label>
+                  <div class="form-group">
+                    <input type="email" class="form-control" ng-model="model.email" name="emailValid" required>
+
+                    <ul ng-if="(signupForm.emailValid.$dirty || signupForm.$submitted) && signupForm.emailValid.$invalid">
+                      <li style="color: red">Email is required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="col-lg-6">
               <div class="row">
                 <div class="col-lg-12">

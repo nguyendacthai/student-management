@@ -64,7 +64,7 @@ namespace StudentManagement.Controllers.Student
 
             var students = UnitOfWork.RepositoryStudent.Search();
             students =
-                students.Where(x => x.Username.Equals(info.Username, StringComparison.InvariantCultureIgnoreCase));
+                students.Where(x => x.Username.Equals(info.Username, StringComparison.InvariantCultureIgnoreCase) || x.Email.Equals(info.Email, StringComparison.InvariantCultureIgnoreCase));
 
             // Student exists.
             if (await students.AnyAsync())
@@ -76,8 +76,10 @@ namespace StudentManagement.Controllers.Student
                 Username = info.Username,
                 Password = IdentityService.HashPassword(info.Password),
                 Fullname = info.Fullname,
+                Email = info.Email,
                 Gender = info.Gender,
                 Phone = info.Phone,
+                ForgotPassword = false,
                 Status = MasterItemStatus.Active
             };
 

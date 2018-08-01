@@ -36,6 +36,12 @@ namespace StudentManagement.ViewModels.Account
         public Gender Gender { get; set; }
 
         /// <summary>
+        /// Email
+        /// </summary>
+        [Required]
+        public string Email { get; set; }
+
+        /// <summary>
         /// Phone number
         /// </summary>
         public string Phone { get; set; }

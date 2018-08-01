@@ -162,9 +162,6 @@ namespace StudentManagement.Controllers
             // Push information back to cache.
             _profileCacheService.Add(cachedProfile.Id, cachedProfile);
 
-            //            var mailTo = new MailAddress("datptitcntt@gmail.com");
-            //            _emailService.SendMail(new[]{ mailTo },"Hi", "Hello Dat",null, false, false);
-
             #endregion
 
             return Ok(token);
@@ -196,7 +193,7 @@ namespace StudentManagement.Controllers
 
             var students = UnitOfWork.RepositoryStudent.Search();
             students =
-                students.Where(x => x.Username.Equals(info.Username, StringComparison.InvariantCultureIgnoreCase));
+                students.Where(x => x.Username.Equals(info.Username, StringComparison.InvariantCultureIgnoreCase) || x.Email.Equals(info.Email, StringComparison.InvariantCultureIgnoreCase));
 
             // Student exists.
             if (await students.AnyAsync())
@@ -209,7 +206,9 @@ namespace StudentManagement.Controllers
                 Password = IdentityService.HashPassword(info.Password),
                 Fullname = info.Fullname,
                 Gender = info.Gender,
+                Email = info.Email,
                 Phone = info.Phone,
+                ForgotPassword = false,
                 Status = MasterItemStatus.Active
             };
 
@@ -226,6 +225,48 @@ namespace StudentManagement.Controllers
             //await UnitOfWork.CommitAsync();
 
             return Ok();
+        }
+
+        /// <summary>
+        /// Forgot password
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        [Route("forgot-password")]
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IHttpActionResult> ForgotPassword([FromBody] ForgotPasswordViewModel info)
+        {
+            #region Parameter validation
+
+            if (info == null)
+            {
+                info = new ForgotPasswordViewModel();
+                Validate(info);
+            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            #endregion
+
+            var students = UnitOfWork.RepositoryStudent.Search();
+            var account =
+               await students.Where(x => x.Email.Equals(info.Email, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefaultAsync();
+
+            // Check account exist or not
+            if (account == null)
+                return ResponseMessage(
+                    Request.CreateErrorResponse(HttpStatusCode.NotFound, HttpMessages.AccountNotFound));
+
+            // Update account
+            account.ForgotPassword = true;
+
+            await UnitOfWork.CommitAsync();
+
+            //            var mailTo = new MailAddress("datptitcntt@gmail.com");
+            //            _emailService.SendMail(new[]{ mailTo },"Hi", "Hello Dat",null, false, false);
+
+            return Ok(account);
         }
 
         #endregion

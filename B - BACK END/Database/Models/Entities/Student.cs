@@ -56,7 +56,7 @@ namespace Database.Models.Entities
         public string Phone { get; set; }
 
         /// <summary>
-        /// Check student forget password or not
+        /// Check student forget password or not. Default = false
         /// </summary>
         public bool ForgotPassword { get; set; }
 

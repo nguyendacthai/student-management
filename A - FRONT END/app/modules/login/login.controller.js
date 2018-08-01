@@ -1,12 +1,12 @@
 angular.module("myApp").controller("loginController", function ($scope, $user, $state, toastr, authenticationService) {
-    $scope.model = { username : '', password: ''}
+    $scope.model = { };
 
     $scope.login = function ($event) {
         $event.preventDefault();
         if($scope.loginForm.$invalid){
             return;
         }
-        $user.login($scope.model.username, $scope.model.password).then(function (x) {
+        $user.login($scope.model).then(function (x) {
 
             // Save token into local storage.
             authenticationService.initAuthenticationToken(x.code);
@@ -17,5 +17,9 @@ angular.module("myApp").controller("loginController", function ($scope, $user, $
 
     $scope.signup = function () {
         $state.go('signup');
+    }
+
+    $scope.forgotPassword = function () {
+        $state.go('forgotPassword');
     }
 });

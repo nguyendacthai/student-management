@@ -31,6 +31,7 @@ myApp.constant('apiUrls', {
 
     account : {
         login : 'api/account/login',
-        register : 'api/account/register'
+        register : 'api/account/register',
+        forgotPassword : 'api/account/forgot-password'
     }
 });
