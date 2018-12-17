@@ -50,6 +50,9 @@ namespace StudentManagement.Configs
             containerBuilder.RegisterType<ProfileCacheService>().As<IValueCacheService<int, ProfileViewModel>>()
                 .SingleInstance();
 
+            // Businesses registration.
+//            containerBuilder.RegisterType<SpecializedBusiness>().As<ISpecializedBusiness>().InstancePerLifetimeScope();
+
             #endregion
 
             #region IoC build

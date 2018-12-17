@@ -21,6 +21,12 @@ namespace StudentManagement.Controllers.Specialized
     [RoutePrefix("api/specialized")]
     public class SpecializedController : ApiBasicController
     {
+        #region Properties
+
+//        private readonly ISpecializedBusiness 
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -48,7 +54,7 @@ namespace StudentManagement.Controllers.Specialized
         {
             UserRoles.Admin
         })]
-        public async Task<IHttpActionResult> CreateSpecialized([FromBody] AddSpecializedViewModel info)
+        public virtual async Task<IHttpActionResult> CreateSpecialized([FromBody] AddSpecializedViewModel info)
         {
             #region Parameter validation
 
