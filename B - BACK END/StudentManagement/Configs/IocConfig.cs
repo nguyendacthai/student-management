@@ -2,13 +2,15 @@
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using Business.Business;
+using Business.Interfaces.Businesses;
 using Database.Models.Contexts;
 using Owin;
-using StudentManagement.Interfaces.Repositories;
-using StudentManagement.Interfaces.Services;
-using StudentManagement.Repositories;
-using StudentManagement.Services;
-using StudentManagement.ViewModels.Account;
+using SharedService.Interfaces.Repositories;
+using SharedService.Interfaces.Services;
+using SharedService.Repositories;
+using SharedService.Services;
+using SharedService.ViewModels;
 
 namespace StudentManagement.Configs
 {
@@ -51,7 +53,7 @@ namespace StudentManagement.Configs
                 .SingleInstance();
 
             // Businesses registration.
-//            containerBuilder.RegisterType<SpecializedBusiness>().As<ISpecializedBusiness>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<SpecializedBusiness>().As<ISpecializedBusiness>().InstancePerLifetimeScope();
 
             #endregion
 

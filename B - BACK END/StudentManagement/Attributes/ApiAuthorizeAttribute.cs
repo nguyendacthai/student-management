@@ -8,9 +8,9 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using AutoMapper;
 using Database.Models.Entities;
-using StudentManagement.Interfaces.Repositories;
-using StudentManagement.Interfaces.Services;
-using StudentManagement.ViewModels.Account;
+using SharedService.Interfaces.Repositories;
+using SharedService.Interfaces.Services;
+using SharedService.ViewModels;
 
 namespace StudentManagement.Attributes
 {

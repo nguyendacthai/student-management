@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
-using StudentManagement.Interfaces.Repositories;
-using StudentManagement.Interfaces.Services;
+using SharedService.Interfaces.Repositories;
+using SharedService.Interfaces.Services;
 
 namespace StudentManagement.Controllers
 {

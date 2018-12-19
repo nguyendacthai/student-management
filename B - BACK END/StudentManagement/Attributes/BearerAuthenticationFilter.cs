@@ -5,8 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
 using log4net;
-using StudentManagement.Interfaces.Services;
-using StudentManagement.Services;
+using SharedService.Interfaces.Services;
+using SharedService.Services;
 
 namespace StudentManagement.Attributes
 {

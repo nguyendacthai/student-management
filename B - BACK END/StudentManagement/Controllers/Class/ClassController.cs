@@ -10,10 +10,10 @@ using Database.Enumerations;
 using Shared.Enumerations;
 using Shared.Models;
 using Shared.Resources;
+using SharedService.Interfaces.Repositories;
+using SharedService.Interfaces.Services;
 using StudentManagement.Attributes;
 using StudentManagement.Enumerations;
-using StudentManagement.Interfaces.Repositories;
-using StudentManagement.Interfaces.Services;
 using StudentManagement.ViewModels.Class;
 
 namespace StudentManagement.Controllers.Class

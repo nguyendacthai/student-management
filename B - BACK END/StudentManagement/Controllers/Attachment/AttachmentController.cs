@@ -11,9 +11,9 @@ using Database.Enumerations;
 using Shared.Enumerations;
 using Shared.Models;
 using Shared.Resources;
+using SharedService.Interfaces.Repositories;
+using SharedService.Interfaces.Services;
 using StudentManagement.Enumerations;
-using StudentManagement.Interfaces.Repositories;
-using StudentManagement.Interfaces.Services;
 using StudentManagement.Models.Attachment;
 using StudentManagement.ViewModels.Attachment;
 

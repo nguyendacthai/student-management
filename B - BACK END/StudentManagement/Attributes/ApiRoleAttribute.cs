@@ -6,7 +6,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using Shared.Enumerations;
 using Shared.Resources;
-using StudentManagement.Interfaces.Services;
+using SharedService.Interfaces.Services;
 
 namespace StudentManagement.Attributes
 {

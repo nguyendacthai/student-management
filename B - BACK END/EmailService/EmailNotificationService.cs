@@ -7,10 +7,10 @@ using System.ServiceProcess;
 using System.Timers;
 using Database.Models.Contexts;
 using log4net;
-using StudentManagement.Interfaces.Repositories;
-using StudentManagement.Interfaces.Services;
-using StudentManagement.Repositories;
-using StudentManagement.Services;
+using SharedService.Interfaces.Repositories;
+using SharedService.Interfaces.Services;
+using SharedService.Repositories;
+using SharedService.Services;
 
 namespace EmailService
 {
@@ -51,7 +51,7 @@ namespace EmailService
 
             _unitOfWork = new UnitOfWork(new RelationalDbContext());
 
-            _emailService = new StudentManagement.Services.EmailService();
+            _emailService = new SharedService.Services.EmailService();
 
             _identityService = new IdentityService();
 

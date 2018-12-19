@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapper;
+﻿using AutoMapper;
 using Database.Models.Entities;
-using StudentManagement.ViewModels.Account;
+using SharedService.ViewModels;
 
 namespace StudentManagement.Configs
 {

@@ -49,6 +49,7 @@
     <Compile Include="Class2.cs" />
     <Compile Include="Enumerations\EntryUndo.cs" />
     <Compile Include="Enumerations\SortDirection.cs" />
+    <Compile Include="Enumerations\Specialized\SpecializedPropertySort.cs" />
     <Compile Include="Enumerations\UserRoles.cs" />
     <Compile Include="Models\Pagination.cs" />
     <Compile Include="Models\Range.cs" />
@@ -60,7 +61,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HttpMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Specialized\AddSpecializedViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\HttpMessages.resx">

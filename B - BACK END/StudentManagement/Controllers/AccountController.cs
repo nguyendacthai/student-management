@@ -4,20 +4,16 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Mail;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Database.Enumerations;
-using Database.Models.Entities;
 using Shared.Enumerations;
 using Shared.Resources;
-using StudentManagement.Attributes;
-using StudentManagement.Interfaces.Repositories;
-using StudentManagement.Interfaces.Services;
+using SharedService.Interfaces.Repositories;
+using SharedService.Interfaces.Services;
+using SharedService.ViewModels;
 using StudentManagement.Models.Account;
 using StudentManagement.ViewModels.Account;
-using StudentManagement.ViewModels.Student;
 
 namespace StudentManagement.Controllers
 {

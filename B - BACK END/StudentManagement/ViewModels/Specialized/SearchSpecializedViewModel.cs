@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Database.Enumerations;
+using Shared.Enumerations.Specialized;
 using Shared.Models;
 using StudentManagement.Enumerations;
 

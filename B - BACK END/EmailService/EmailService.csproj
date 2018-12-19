@@ -74,6 +74,10 @@
       <Project>{51799F49-11B0-459D-BC08-C83A491FFA1D}</Project>
       <Name>Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedService\SharedService.csproj">
+      <Project>{64594888-4d7b-4b2a-b4a8-e2c07a860110}</Project>
+      <Name>SharedService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StudentManagement\StudentManagement.csproj">
       <Project>{8688530D-40D1-4594-BDB2-B433B25C6B6A}</Project>
       <Name>StudentManagement</Name>

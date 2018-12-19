@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Database.Enumerations;
 using Shared.Enumerations;
 using Shared.Models;
+using SharedService.Interfaces.Repositories;
+using SharedService.Interfaces.Services;
 using StudentManagement.Enumerations;
-using StudentManagement.Interfaces.Repositories;
-using StudentManagement.Interfaces.Services;
-using StudentManagement.ViewModels.Class;
 using StudentManagement.ViewModels.UserRole;
 
 namespace StudentManagement.Controllers.UserRole
