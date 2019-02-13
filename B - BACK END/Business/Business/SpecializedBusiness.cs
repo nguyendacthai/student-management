@@ -15,7 +15,6 @@ using Shared.Models;
 using Shared.Resources;
 using SharedService.Exceptions;
 using SharedService.Interfaces.Repositories;
-using SharedService.Repositories;
 
 namespace Business.Business
 {
@@ -62,7 +61,7 @@ namespace Business.Business
             var specialized = new Specialized
             {
                 Name = model.Name,
-                Status = Database.Enumerations.MasterItemStatus.Active
+                Status = MasterItemStatus.Active
             };
 
             _unitOfWork.RepositorySpecialized.Insert(specialized);
