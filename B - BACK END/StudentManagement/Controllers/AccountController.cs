@@ -109,6 +109,26 @@ namespace StudentManagement.Controllers
             #endregion
         }
 
+        /// <summary>
+        /// Register new account.
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        [Route("register")]
+        [HttpPost]
+        public async Task<IHttpActionResult> Register(RegisterViewModel info)
+        {
+            if (info == null)
+            {
+                info = new RegisterViewModel();
+                Validate(info);
+            }
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return Ok();
+        }
         #endregion
 
     }

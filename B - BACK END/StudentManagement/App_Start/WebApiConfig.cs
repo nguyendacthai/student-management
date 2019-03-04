@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using ApiMultiPartFormData;
 using Newtonsoft.Json.Serialization;
 
 namespace StudentManagement
@@ -22,7 +23,9 @@ namespace StudentManagement
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            
+
+            // Add multipart/form-data.
+            config.Formatters.Add(new MultipartFormDataFormatter());
         }
     }
 }
